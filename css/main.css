@@ -9,7 +9,7 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0);
+  background-color: rgba(0,0,0,0.3);
 }
 .banner .page-header {
   color: #fff;
@@ -26,13 +26,6 @@
   will-change: transform;
   -webkit-transform-style: preserve-3d;
   -webkit-backface-visibility: hidden;
-}
-.real_mask {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.4);
-  z-index: -777;
 }
 @media (max-width: 100vh) {
   header {
@@ -1551,10 +1544,7 @@ post-custom {
   font-size: 0.95rem;
 }
 .tocbot-link {
-  color: #ddd;
-}
-.vvd_contents {
-  color: #ddd;
+  color: var(--text-color);
 }
 .tocbot-active-link {
   font-weight: bold;

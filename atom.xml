@@ -6,7 +6,7 @@
   <link href="http://1921430580.github.io/atom.xml" rel="self"/>
   
   <link href="http://1921430580.github.io/"/>
-  <updated>2022-04-17T08:44:09.790Z</updated>
+  <updated>2022-04-17T09:17:49.366Z</updated>
   <id>http://1921430580.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>优化日志</title>
+    <link href="http://1921430580.github.io/2022/04/17/%E4%BC%98%E5%8C%96%E6%97%A5%E5%BF%97/"/>
+    <id>http://1921430580.github.io/2022/04/17/%E4%BC%98%E5%8C%96%E6%97%A5%E5%BF%97/</id>
+    <published>2022-04-17T09:14:51.000Z</published>
+    <updated>2022-04-17T09:17:49.366Z</updated>
+    
+    <content type="html"><![CDATA[<p>待更新</p>]]></content>
+    
+    
+    <summary type="html">记录一直以来的优化历程</summary>
+    
+    
+    
+    <category term="优化日志" scheme="http://1921430580.github.io/categories/%E4%BC%98%E5%8C%96%E6%97%A5%E5%BF%97/"/>
+    
+    
+    <category term="优化日志" scheme="http://1921430580.github.io/tags/%E4%BC%98%E5%8C%96%E6%97%A5%E5%BF%97/"/>
+    
+  </entry>
   
   <entry>
     <title>笔记本更换无线网卡</title>

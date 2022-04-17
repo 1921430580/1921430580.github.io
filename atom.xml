@@ -6,7 +6,7 @@
   <link href="http://1921430580.github.io/atom.xml" rel="self"/>
   
   <link href="http://1921430580.github.io/"/>
-  <updated>2022-04-17T03:40:26.425Z</updated>
+  <updated>2022-04-17T07:01:14.504Z</updated>
   <id>http://1921430580.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>主题魔改踩坑之路</title>
+    <link href="http://1921430580.github.io/2022/04/17/%E4%B8%BB%E9%A2%98%E9%AD%94%E6%94%B9%E8%B8%A9%E5%9D%91%E4%B9%8B%E8%B7%AF/"/>
+    <id>http://1921430580.github.io/2022/04/17/%E4%B8%BB%E9%A2%98%E9%AD%94%E6%94%B9%E8%B8%A9%E5%9D%91%E4%B9%8B%E8%B7%AF/</id>
+    <published>2022-04-17T06:58:21.000Z</published>
+    <updated>2022-04-17T07:01:14.504Z</updated>
+    
+    <content type="html"><![CDATA[<p>测试</p>]]></content>
+    
+    
+    <summary type="html">持续更新ing</summary>
+    
+    
+    
+    <category term="踩过的坑" scheme="http://1921430580.github.io/categories/%E8%B8%A9%E8%BF%87%E7%9A%84%E5%9D%91/"/>
+    
+    
+    <category term="踩过的坑" scheme="http://1921430580.github.io/tags/%E8%B8%A9%E8%BF%87%E7%9A%84%E5%9D%91/"/>
+    
+  </entry>
   
   <entry>
     <title>c++学习笔记之预备知识</title>

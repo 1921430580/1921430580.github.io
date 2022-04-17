@@ -1,8 +1,8 @@
 /*10s为加载动画的时间，1为加载动画的次数，ease-in-out为动画效果*/
 #page-header,
 #web_bg {
-    -webkit-animation: imgblur 3s 1 ease-in-out;
-    animation: imgblur 3s 1 ease-in-out;
+    -webkit-animation: imgblur 1s 1 ease-in-out;
+    animation: imgblur 1s 1 ease-in-out;
 }
 @keyframes imgblur {
   0% {

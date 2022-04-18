@@ -6,7 +6,7 @@
   <link href="http://1921430580.github.io/atom.xml" rel="self"/>
   
   <link href="http://1921430580.github.io/"/>
-  <updated>2022-04-17T09:17:49.366Z</updated>
+  <updated>2022-04-18T03:06:16.876Z</updated>
   <id>http://1921430580.github.io/</id>
   
   <author>
@@ -17,13 +17,76 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>编程学习踩坑之路</title>
+    <link href="http://1921430580.github.io/2022/04/18/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0%E8%B8%A9%E5%9D%91%E4%B9%8B%E8%B7%AF/"/>
+    <id>http://1921430580.github.io/2022/04/18/%E7%BC%96%E7%A8%8B%E5%AD%A6%E4%B9%A0%E8%B8%A9%E5%9D%91%E4%B9%8B%E8%B7%AF/</id>
+    <published>2022-04-18T01:35:41.000Z</published>
+    <updated>2022-04-18T03:06:16.876Z</updated>
+    
+    <content type="html"><![CDATA[<p>待更新</p>]]></content>
+    
+    
+    <summary type="html">踩过的坑</summary>
+    
+    
+    
+    <category term="踩过的坑" scheme="http://1921430580.github.io/categories/%E8%B8%A9%E8%BF%87%E7%9A%84%E5%9D%91/"/>
+    
+    
+    <category term="踩过的坑" scheme="http://1921430580.github.io/tags/%E8%B8%A9%E8%BF%87%E7%9A%84%E5%9D%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>算法与数据结构学习笔记之</title>
+    <link href="http://1921430580.github.io/2022/04/18/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>http://1921430580.github.io/2022/04/18/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</id>
+    <published>2022-04-18T01:27:35.000Z</published>
+    <updated>2022-04-18T01:28:31.590Z</updated>
+    
+    <content type="html"><![CDATA[<p>待更新</p>]]></content>
+    
+    
+    <summary type="html">一个简单的算法与数据结构学习笔记</summary>
+    
+    
+    
+    <category term="算法与数据结构学习笔记" scheme="http://1921430580.github.io/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="算法与数据结构学习笔记" scheme="http://1921430580.github.io/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>c++笔记之初识c++</title>
+    <link href="http://1921430580.github.io/2022/04/18/c++%E7%AC%94%E8%AE%B0%E4%B9%8B%E5%88%9D%E8%AF%86c++/"/>
+    <id>http://1921430580.github.io/2022/04/18/c++%E7%AC%94%E8%AE%B0%E4%B9%8B%E5%88%9D%E8%AF%86c++/</id>
+    <published>2022-04-18T00:29:06.000Z</published>
+    <updated>2022-04-18T00:58:13.968Z</updated>
+    
+    <content type="html"><![CDATA[<p>C++ primer 复习 第一章<br>1.1 编写一个简单的C++程序<br>C++程序内容</p><p>每个C++程序都包含一个或多个函数，其中一个必须命名为 main</p><p>函数的定义</p><p>函数名，参数列表，函数体，返回类型</p><p>main 函数</p><p>int main(){<br>    return 0;<br>}<br>1<br>2<br>3<br>类型</p><p>定义了数据元素的内容（所占内存大小）和该数据上可进行的计算</p><p>数据保存</p><p>数据保存在变量中，每个变量都有自己的类型</p><p>若 int a &#x3D; 0，则 a 是一个int类型的变量或 a是 int型</p><p>内置类型</p><p>语言自定义的类型</p><p>1.2 输入和输出<br>（stream）流</p><p>一个流就是一个字符序列，从IO设备读出或写入。</p><p>流表示随着时间推移，字符序列是顺序生成还是消耗</p><p>IStream &amp; OStream</p><p>输入流（input stream）&amp; 输出流（output stream）</p><p>四个IO对象</p><p>IO对象名所属类型解释<br>cinIStream的类型对象标准输入<br>coutOStream的类型对象标准输出<br>cerrOStream的类型对象标准错误<br>clogOStream的类型对象一般日志打印<br>补充：cout &lt;&lt; （或 cin &gt;&gt;）重载运算符会返回它本身</p><p>#include<iostream>&#x2F;&#x2F; 使用标准库必须包含头文件</p><p>int main(){</p><pre><code>// std是标准库的命名空间std::cout &lt;&lt; &quot;Entenr two number &quot; &lt;&lt; std::endl;int num1, num2;// 等价于(std::cin &gt;&gt; num1) &gt;&gt; num2// &gt;&gt; 输入运算符，左边必须是istream对象std::cin &gt;&gt; num1 &gt;&gt; num2; std::cout &lt;&lt; &quot;The sum of &quot; &lt;&lt; num1 &lt;&lt; &quot; and &quot; &lt;&lt; num2 &lt;&lt; &quot; is &quot; &lt;&lt; (num1 + num2) &lt;&lt; std::endl;//endl (end line) 结束当前行,将设备的缓存区内容刷到设备中system(&quot;pause&quot;);return 0;</code></pre><p>}<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>注释</p><p>多行注释 用于解释函数或类</p><p>单行注释 用于解释单行语句</p><p>1.3 控制流循环和分支<br>控制流</p><p>语句一般顺序执行，但也能提供不同的控制流语句</p><p>while ：根据判断条件，决定循环语句是否执行</p><p>&#x2F;*<br> 求 1-10 相加之和<br>*&#x2F;<br>int main(){<br>    int sum &#x3D; 0, val &#x3D; 1;<br>    while (val&lt;&#x3D;10){<br>        sum +&#x3D; val;<br>        ++val;<br>    }</p><pre><code>std::cout &lt;&lt; &quot;sum of 1 to 10 includsive is &quot; &lt;&lt; sum &lt;&lt; std::endl;system(&quot;pause&quot;);return 0;</code></pre><p>}<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>for ：检测变量以判断是否继续循环，且在循环体中递增这种模式非常普遍。for是为了简化这种过程</p><p>int sum &#x3D; 0;<br>for (int val &#x3D; 1; val &lt;&#x3D; 10;++val){<br>    sum +&#x3D; val;<br>}<br>1<br>2<br>3<br>4<br>小程序</p><p>&#x2F;*<br>对用户输入的一个数组求和<br>*&#x2F;</p><p>&#x2F;&#x2F;变量必须初始化, <a href="https://blog.csdn.net/qq_38880380/article/details/79459195">https://blog.csdn.net/qq_38880380/article/details/79459195</a><br>int sum &#x3D; 0, val &#x3D; 0;<br>&#x2F;&#x2F;读取数据直至末尾(EOF&#x2F;Ctrl+Z)或读取错误<br>while (std::cin&gt;&gt;val)<br>{<br>    sum +&#x3D; val;<br>}</p><p>std::cout &lt;&lt; “The sum is “ &lt;&lt; sum &lt;&lt; std::endl;<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>&#x2F;*<br>统计每个值连续出现了多少次<br>*&#x2F;</p><p>int count &#x3D; 1, head &#x3D; 0,behind &#x3D; 0;</p><pre><code>std::cin &gt;&gt; head;while (std::cin &gt;&gt; behind)&#123;    if (head == behind)&#123;        ++count;    &#125;else&#123;        std::cout &lt;&lt; &quot;The &quot; &lt;&lt; head &lt;&lt; &quot; number appear &quot; &lt;&lt;             count &lt;&lt; &quot; tiems&quot; &lt;&lt; std::endl;        count = 1;        head = behind;    &#125;&#125;std::cout &lt;&lt; &quot;The &quot; &lt;&lt; head &lt;&lt; &quot; number appear &quot;     &lt;&lt; count &lt;&lt; &quot; tiems&quot; &lt;&lt; std::endl;</code></pre><p>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>1.4 类简介<br>类</p><p>用来定义自己的数据结构</p><p>一个类定义了一种类型，及其相关的操作</p><p>#include<string><br>#include<iostream><br>&#x2F;*<br>以Sales_item类为例,表示一本书编号，售出册数，平均售价   √<br>支持以下操作<br>读取ISBN书号<br>通过 &gt;&gt; 或 &lt;&lt; 运算符读写书信息                      √ X<br>通过&#x3D;进行赋值<br>通过+运算符,累加两个ISBN书号对象<br>支持+&#x3D;复合运算符,将一个对象加到另一个上<br>*&#x2F;</p><p>class Sales_item{<br>public:<br>    Sales_item(std::string isbn, double price, int copies){<br>        m_isbn &#x3D; isbn;<br>        m_price &#x3D; price;<br>        m_copies &#x3D; copies;<br>    }</p><pre><code>//2、由于需要访问 Sales_item 类的私有成员，因此在 Sales_item 类定义中将它声明为友元friend std::ostream &amp; operator&lt;&lt;(std::ostream &amp; os, const Sales_item &amp; salesItem);</code></pre><p>private:<br>    std::string m_isbn;<br>    double m_price;<br>    int m_copies;<br>};</p><p>&#x2F;&#x2F;1、因为没有办法修改 ostream 类，所以只能将 &lt;&lt; 重载为全局函数的形式<br>std::ostream &amp; operator&lt;&lt;(std::ostream &amp; os, const Sales_item &amp; salesitem)<br>{<br>    os &lt;&lt; (salesitem.m_isbn + “\t” + std::to_string(salesitem.m_copies)<br>        + “\t” + std::to_string(salesitem.m_price)) &lt;&lt; std::endl;<br>    return os;<br>}</p><p>int main(){<br>    Sales_item salesItem(“0-2021-10-29”, 59.9, 10);<br>    std::cout &lt;&lt; salesItem;</p><pre><code>system(&quot;pause&quot;);return 0;</code></pre><p>}<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>成员函数</p><p>类中定义的函数，也被称为方法</p><p>VS 快捷注释</p><p>注释： 先CTRL+K+C</p><p>取消注释： 先CTRL+K+U</p><p>左移运算符</p><p>C++ 中左移运算符 &lt;&lt; 可以和标准输出 cout 一起用于输出，因此也常被称为输出运算符</p><p>&lt;&lt; 本没有这样的功能，因为其被 ostream 重载了，cout 是 ostream 类的对象。在头文件 <iostream>中声明，ostream 类将 &lt;&lt; 重载为成员函数，如下</p><p>ostream &amp; ostream::operator &lt;&lt; (const char* s)<br>{<br>    &#x2F;&#x2F;输出s的代码<br>    return * this;<br>}</p>]]></content>
+    
+    
+    <summary type="html">一个简单的笔记</summary>
+    
+    
+    
+    <category term="c++学习笔记" scheme="http://1921430580.github.io/categories/c-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="c++学习笔记" scheme="http://1921430580.github.io/tags/c-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>优化日志</title>
     <link href="http://1921430580.github.io/2022/04/17/%E4%BC%98%E5%8C%96%E6%97%A5%E5%BF%97/"/>
     <id>http://1921430580.github.io/2022/04/17/%E4%BC%98%E5%8C%96%E6%97%A5%E5%BF%97/</id>
     <published>2022-04-17T09:14:51.000Z</published>
-    <updated>2022-04-17T09:17:49.366Z</updated>
+    <updated>2022-04-17T12:44:00.998Z</updated>
     
-    <content type="html"><![CDATA[<p>待更新</p>]]></content>
+    <content type="html"><![CDATA[<p>2022年4月11日</p><p>1、修改页头和页脚为透明</p><p>2、修改文章卡片和每个页面的透明度</p><p>3、优化头图由模糊变清晰的时间</p>]]></content>
     
     
     <summary type="html">记录一直以来的优化历程</summary>
@@ -81,8 +144,8 @@
   
   <entry>
     <title>c++学习笔记之预备知识</title>
-    <link href="http://1921430580.github.io/2022/04/15/c-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/"/>
-    <id>http://1921430580.github.io/2022/04/15/c-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</id>
+    <link href="http://1921430580.github.io/2022/04/15/c++%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/"/>
+    <id>http://1921430580.github.io/2022/04/15/c++%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</id>
     <published>2022-04-15T08:46:51.000Z</published>
     <updated>2022-04-17T03:40:26.425Z</updated>
     

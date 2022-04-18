@@ -137,14 +137,7 @@
 
   
   <url>
-    <loc>http://1921430580.github.io/tags/Python/</loc>
-    <lastmod>2022-04-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://1921430580.github.io/tags/c-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
+    <loc>http://1921430580.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2022-04-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -158,13 +151,6 @@
   </url>
   
   <url>
-    <loc>http://1921430580.github.io/tags/%E8%B8%A9%E8%BF%87%E7%9A%84%E5%9D%91/</loc>
-    <lastmod>2022-04-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://1921430580.github.io/tags/%E7%94%B5%E8%84%91/</loc>
     <lastmod>2022-04-18</lastmod>
     <changefreq>weekly</changefreq>
@@ -172,7 +158,14 @@
   </url>
   
   <url>
-    <loc>http://1921430580.github.io/tags/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
+    <loc>http://1921430580.github.io/tags/%E8%B8%A9%E8%BF%87%E7%9A%84%E5%9D%91/</loc>
+    <lastmod>2022-04-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://1921430580.github.io/tags/c-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2022-04-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -181,7 +174,14 @@
 
   
   <url>
-    <loc>http://1921430580.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
+    <loc>http://1921430580.github.io/categories/Python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2022-04-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://1921430580.github.io/categories/c-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2022-04-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -202,6 +202,13 @@
   </url>
   
   <url>
+    <loc>http://1921430580.github.io/categories/%E7%94%B5%E8%84%91/</loc>
+    <lastmod>2022-04-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://1921430580.github.io/categories/%E8%B8%A9%E8%BF%87%E7%9A%84%E5%9D%91/</loc>
     <lastmod>2022-04-18</lastmod>
     <changefreq>weekly</changefreq>
@@ -209,7 +216,7 @@
   </url>
   
   <url>
-    <loc>http://1921430580.github.io/categories/%E7%94%B5%E8%84%91/</loc>
+    <loc>http://1921430580.github.io/categories/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2022-04-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

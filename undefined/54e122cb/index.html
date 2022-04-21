@@ -1,0 +1,667 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>c++笔记之变量和基本类型 | my blog</title><meta name="keywords" content="学习笔记"><meta name="author" content="张栋梁"><meta name="copyright" content="张栋梁"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一个简单的笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="c++笔记之变量和基本类型">
+<meta property="og:url" content="http://1921430580.github.io/undefined/54e122cb/index.html">
+<meta property="og:site_name" content="my blog">
+<meta property="og:description" content="一个简单的笔记">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊5.j42z6xokck8.webp">
+<meta property="article:published_time" content="2022-04-21T08:43:07.000Z">
+<meta property="article:modified_time" content="2022-04-21T13:28:35.247Z">
+<meta property="article:author" content="张栋梁">
+<meta property="article:tag" content="学习笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊5.j42z6xokck8.webp"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://1921430580.github.io/undefined/54e122cb/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: 张栋梁","link":"链接: ","source":"来源: my blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'c++笔记之变量和基本类型',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-04-21 21:28:35'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css"  media="defer" onload="this.media='all'"><link rel="stylesheet" href="/css/custom.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><link rel="stylesheet" href="https://unpkg.zhimg.com/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"><link rel="alternate" href="/atom.xml" title="my blog" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">12</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw icon-tiger"></i><span> 拓展</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/comments/"><i class="fa-fw fa fa-comments"></i><span> 留言</span></a></li><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊5.j42z6xokck8.webp')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">my blog</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw icon-tiger"></i><span> 拓展</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/comments/"><i class="fa-fw fa fa-comments"></i><span> 留言</span></a></li><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">c++笔记之变量和基本类型</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-04-21T08:43:07.000Z" title="发表于 2022-04-21 16:43:07">2022-04-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-04-21T13:28:35.247Z" title="更新于 2022-04-21 21:28:35">2022-04-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/c-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">c++学习笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="c++笔记之变量和基本类型"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>问题</p>
+<ol>
+<li>指针和引用有4点不同，分别是哪些？</li>
+<li>const 对象必须怎样</li>
+<li>const 对象的作用范围</li>
+<li>什么是常量引用，如何声明，是顶层还是底层</li>
+<li>常量引用与常量对象、非常量对象的关系。</li>
+<li>什么是常量指针，如何声明，是顶层还是底层</li>
+<li>常量指针与常量对象、非常量对象的关系。</li>
+<li>顶层 const 和底层 const 都是什么，在什么位置</li>
+<li>如何区分顶层 const 和底层 const</li>
+<li>constexpr 是什么，特点是什么</li>
+</ol>
+<p>回答</p>
+<ol>
+<li>指针是对象而引用不是；指针可以重定向引用不可以；有指向指针的指针无引用的引用；引用必须初始化指针不需要</li>
+<li>必须初始化</li>
+<li>默认范围是文件内</li>
+<li>不能改变对象的引用是常量引用，const int&amp; i &#x3D; a，是底层 const</li>
+<li>不能用非常量引用绑定常量对象，可以用常量引用绑定非常量对象。</li>
+<li>常量指针表明指针是个常量，其内存储的地址不能改变，但是指针还能修改所指对象的值。int* const p &#x3D; a，是顶层const。</li>
+<li>可以用常量指针指向非常量对象。</li>
+<li>顶层 const 表示指针本身是常量，底层 const 表示所指对象是常量<strong>。顶层 const 在右边，底层 const 在左边</strong></li>
+<li>只有指针同时有顶层和底层，const 在星号右边是顶层，左边是底层。引用的 const 是底层，其他类型 const 是顶层。</li>
+<li>常量表达式。两个点：值不能改变、在编译阶段就可以计算出值</li>
+</ol>
+<p>问题</p>
+<ol>
+<li>浮点数赋给整型变量时如何舍入？</li>
+<li>decltype 是什么，如何使用</li>
+<li>如何声明而非定义一个变量</li>
+<li>如果指针不初始化会有什么影响</li>
+<li>如何在多个文件间共享 const 对象</li>
+<li>使用 auto 来定义引用时要注意什么</li>
+<li>预处理变量的作用范围是什么</li>
+<li>C++属于静态类型语言，静态类型语言的含义是什么？</li>
+<li>C++有两种定义类型别名的方式，分别是什么</li>
+</ol>
+<p>回答</p>
+<ol>
+<li>只保留小数点前的部分，即向零舍入</li>
+<li>用来获取变量类型，decltype(c) a;</li>
+<li>使用 extern 修饰符： extern int i:</li>
+<li>在块作用域中，未初始化的指针的值是未定义的。</li>
+<li>如果想在多个文件间共享const对象，必须在变量的定义前添加extern关键字并在本文件中声明。声明和定义都要加extern</li>
+<li>用 auto 定义引用时，必须要加 &amp; 符号。尤其是在范围 for 循环中，当想要修改值时，一定要记得加上引用符。</li>
+<li>文件内。</li>
+<li>静态类型语言在编译时检查变量类型。</li>
+<li>typedef unsigned int size_type 和 using size_type &#x3D; unsigned int;</li>
+</ol>
+<h1 id="第2章-变量和基本类型"><a href="#第2章-变量和基本类型" class="headerlink" title="第2章 变量和基本类型"></a>第2章 变量和基本类型</h1><p>​		C++定义了几种基本内置类型，如字符、整型、浮点数等。</p>
+<h2 id="2-1-基本内置类型"><a href="#2-1-基本内置类型" class="headerlink" title="2.1 基本内置类型"></a>2.1 基本内置类型</h2><p>​		基本内置类型包括算数类型和空类型。算数类型包括字符、整型数、浮点数和布尔值。</p>
+<h3 id="2-1-1-算术类型"><a href="#2-1-1-算术类型" class="headerlink" title="2.1.1 算术类型"></a>2.1.1 算术类型</h3><table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center"></th>
+<th align="center"></th>
+<th align="center">c++算数类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>类型</strong></td>
+<td align="center"><strong>含义</strong></td>
+<td align="center"><strong>最小尺寸</strong></td>
+<td align="center"><strong>说明</strong></td>
+</tr>
+<tr>
+<td align="center">bool</td>
+<td align="center">布尔类型</td>
+<td align="center">未定义</td>
+<td align="center">取值为真（true）或假（false）</td>
+</tr>
+<tr>
+<td align="center">char</td>
+<td align="center">字符</td>
+<td align="center">8位</td>
+<td align="center">1个 char 的空间应确保可以存放机器基本字符集中任意字符对应的数字值</td>
+</tr>
+<tr>
+<td align="center">wchar_t</td>
+<td align="center">宽字符</td>
+<td align="center">16位</td>
+<td align="center">用于扩展字符集，确保可以存放机器最大扩展字符集中的任意一个字符</td>
+</tr>
+<tr>
+<td align="center">char16_t</td>
+<td align="center">Unicode字符</td>
+<td align="center">16位</td>
+<td align="center">用于扩展字符集，为 Unicode 字符集服务</td>
+</tr>
+<tr>
+<td align="center">char32_t</td>
+<td align="center">Unicode字符</td>
+<td align="center">32位</td>
+<td align="center">用于扩展字符集，为 Unicode 字符集服务</td>
+</tr>
+<tr>
+<td align="center">short</td>
+<td align="center">短整型</td>
+<td align="center">16位</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">int</td>
+<td align="center">整型</td>
+<td align="center">16位</td>
+<td align="center">一个 int 至少和 一个 short 一样大</td>
+</tr>
+<tr>
+<td align="center">long</td>
+<td align="center">长整形</td>
+<td align="center">32位</td>
+<td align="center">一个 long 至少和一个 int 一样大</td>
+</tr>
+<tr>
+<td align="center">long long</td>
+<td align="center">长长整形</td>
+<td align="center">64位</td>
+<td align="center">C++11 中新定义，一个 long long 至少和 一个 long 一样大</td>
+</tr>
+<tr>
+<td align="center">float</td>
+<td align="center">浮点型</td>
+<td align="center">6位有效数字</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">double</td>
+<td align="center">双精度浮点型</td>
+<td align="center">10位有效数字</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">long double</td>
+<td align="center">扩展精度浮点型</td>
+<td align="center">10位有效数字</td>
+<td align="center">常常用于有特殊浮点需求的硬件</td>
+</tr>
+</tbody></table>
+<p>​		计算机以比特序列存储数据，每个比特非0即1,<br>​		可寻址的最小内存块称为“字节（byte）”，内存的基本单元称为“字（word）”<br>​		大多数机器的字节由8比特构成，字则由32或64比特构成</p>
+<ul>
+<li>无符号类型<br>int、short、long和long long都是带符号的，前面加上unsigned就可以得到无符号类型，例如unsigned long<br>unsigned int可以缩写成unsigned。<br>char比较特殊，类型分为三种：char、signed char、unsigned char<br>char是signed char或unsigned char的其中一种（编译器决定）</li>
+</ul>
+<p>C++ 提供了几种字符类型：</p>
+<ol>
+<li>char：一个 char 的空间应确保可以存放机器基本字符集中任意字符对于的数字值，即一个 char 的大小和一个机器字节一样。</li>
+<li>wchar_t：宽字符，用于扩展字符集，wchar_t 确保可以存放机器最大扩展字符集中的任意一个字符。</li>
+<li>char16_t 和 char32_t：为 Unicode 字符集服务。</li>
+</ol>
+<p>类型选择：</p>
+<p>​		明确知晓数值不可能为负时，选用无符号类型。</p>
+<p>​		整数运算用 int，数值太大时用 long long，不用 short 和 long</p>
+<p>​		浮点数运算用 double。float 和 double 的计算代价相差无几</p>
+<h3 id="2-1-2-类型转换"><a href="#2-1-2-类型转换" class="headerlink" title="2.1.2 类型转换"></a>2.1.2 类型转换</h3><p>几种类型转换的情况：</p>
+<ol>
+<li>把浮点数赋给整型时，结果仅保留小数点前的部分。</li>
+<li>赋给无符号类型超出范围的值时，结果是初始值对无符号类型表示数值总数取模后的余数。比如 -1 赋给 8 位 unsigned char 的结果是 255（-1&#x3D;256*(-1)+255）</li>
+<li>赋给带符号类型超出范围的值时，结果是未定义的。程序可能工作，可能崩溃。</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">bool</span> b=<span class="number">42</span>;		        <span class="comment">//b为真</span></span><br><span class="line"><span class="type">int</span> i=b;			    <span class="comment">//i的值为1</span></span><br><span class="line">i=<span class="number">3.14</span>;			        <span class="comment">//i的值为3</span></span><br><span class="line"><span class="type">double</span> pi=i;		    <span class="comment">//pi的值为3.0</span></span><br><span class="line"><span class="type">unsigned</span> <span class="type">char</span> c=<span class="number">-1</span>;	    <span class="comment">//假设char占8比特，c的值为255</span></span><br><span class="line"><span class="type">signed</span> <span class="type">char</span> c2=<span class="number">256</span>;	    <span class="comment">//假设char占8比特，c2的值未定义</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>程序尽量避免依赖于实现环境的行为。比如 int 的尺寸在不同环境可能不同。</li>
+<li>含有无符号类型的表达式</li>
+<li>个表达式中既有无符号数又有int值时，int会被转换成无符号数。</li>
+<li>无符号减无符号数，结果还是无符号数，如果是负值就等于该符数加上无符号数的模，切勿混用带符号类型和无符号类型。</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">unsigned</span> u=<span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> i=<span class="number">-42</span>;</span><br><span class="line">std::cout &lt;&lt; i+i &lt;&lt; std::endl;<span class="comment">//输出-84</span></span><br><span class="line">std::cout &lt;&lt; u+i &lt;&lt; std::endl;<span class="comment">//如果int占32位，输出4294967264</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-1-3-字面值常量"><a href="#2-1-3-字面值常量" class="headerlink" title="2.1.3 字面值常量"></a>2.1.3 字面值常量</h3><p>​		一个型如42的值就称为字面值常量（literal）</p>
+<p>​		整型和浮点型字面值</p>
+<p>​		整型字面值中 0 开头的整数是 8 进制，0x 开头的整数是十六进制。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">20</span><span class="comment">/*十进制*/</span>  <span class="number">024</span><span class="comment">/*八进制*/</span>  <span class="number">0x14</span><span class="comment">/*十六进制*/</span></span><br></pre></td></tr></table></figure>
+
+<p>​		整型字面值的具体数据类型由它的值和符号决定。默认情况下十进制字面值是带符号数，类型是 int, long, long long 中能容纳当前值的尺寸最小的那个。</p>
+<p>​		浮点型字面值可以用小数或科学计数法表示，科学计数法中的指数部分用 E 或 e 标识。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3.14159</span> <span class="number">3.14169E0</span> <span class="number">0.</span> <span class="number">0e0</span> <span class="number">.001</span></span><br></pre></td></tr></table></figure>
+
+<p>字符和字符串字面值</p>
+<p>​		单引号括起来的一个字符是 char 型字面值，双引号括起来的 0 个或多个字符则构成字符串型字面值。</p>
+<p>​		字符串字面值的类型实际上是字符数组，编译器会向每个字符串结尾添加一个空字符（’\0’），因此字符串字面值的实际长度要比它的内容多 1。如 “A” 代表了一个长度为 2 的字符数组。</p>
+<p>​		如果两个字符串字面值紧邻且仅由空格、缩进和换行符分隔，则它们实际上是一个整体。因此字符串比较长时可以直接分行书写。</p>
+<p>​                “A is B”   “and B is A”; &#x2F;&#x2F;两个字符串实际上是一个整体。              </p>
+<p>转义序列</p>
+<p>C++ 定义的转义序列包括：</p>
+<p><img src="D:\blog\source_posts\c-笔记之基本类型\转义字符.png" alt="转义序列"></p>
+<p>在程序中，上述转义序列被当作一个字符使用。</p>
+<p>也可以使用泛化的转移序列，形式是 \后跟 1~3 个八进制数字或 \x 后跟 1 个或多个十六进制数字。</p>
+<p>​          <img src="D:\blog\source_posts\c-笔记之基本类型\泛化的转义序列.png" alt="泛化的转义序列">    </p>
+<p>指定字面值的类型</p>
+<p>可以通过给字面值增加前缀和后缀来改变字面值的默认类型。</p>
+<p>   <img src="D:\blog\source_posts\c-笔记之基本类型\字符和字符串字面值.png" alt="常用字符和字符串字面值"></p>
+<p>注意 12f 是错的，不能给整型字面值加 f 后缀，可以使用 12.f。         </p>
+<h2 id="2-2-变量"><a href="#2-2-变量" class="headerlink" title="2.2 变量"></a>2.2 变量</h2><p>对于c++而言，”变量“和”对象“一般可以互换使用。</p>
+<p>c++中，对象通常指一块能存储数据并具有某种类型的内存</p>
+<h3 id="2-2-1-变量定义"><a href="#2-2-1-变量定义" class="headerlink" title="2.2.1 变量定义"></a>2.2.1 变量定义</h3><p>初始化</p>
+<p>可以在同一条定义语句中使用先定义的变量去初始化后定义的其他变量。</p>
+<p>​                double price &#x3D; 109.99, discount &#x3D; price * 0.6;              </p>
+<p>初始化不是赋值，初始化是创建变量时赋予一个初始值，赋值是把对象的当前值擦除并用一个新值来替代。</p>
+<p>列表初始化</p>
+<p>下面四种初始化方式都是可行的，其中使用花括号的方式叫做列表初始化。</p>
+<p>​                int i&#x3D;0;  int i&#x3D;{0};  int i{0};  int i(0);              </p>
+<p>当用于内置类型的变量时，使用列表初始化且初始值存在信息丢失的风险，编译器会报错。</p>
+<p>​                long double ld &#x3D; 3.1415926536; int a{ld}, b&#x3D;{ld};  &#x2F;&#x2F;错误，存在信息丢失的风险，转换未执行。 int c(ld), d&#x3D;ld;    &#x2F;&#x2F;正确              </p>
+<p>默认初始化</p>
+<p>定义于函数体内的内置类型的对象如果没有初始化，则其值未定义。定义于任何函数之外的内置类型则被初始化为0；</p>
+<p>类的对象如果没有显式地初始化，则其由类确定。string 默认初始化为一个空串。</p>
+<p>不能使用未初始化的变量，否则会引发运行时故障。</p>
+<p>建议初始化每一个内置类型的变量。</p>
+<h3 id="2-2-2-变量声明和定义的关系"><a href="#2-2-2-变量声明和定义的关系" class="headerlink" title="2.2.2 变量声明和定义的关系"></a>2.2.2 变量声明和定义的关系</h3><p>声明和定义是严格区分的。</p>
+<p>要声明一个变量加 extern，声明变量不能赋值。</p>
+<p>任何包含了显式初始化的声明即成为定义。</p>
+<p>​                extern int i;     &#x2F;&#x2F; 声明 i int i;            &#x2F;&#x2F; 定义i； extern int i &#x3D; 1; &#x2F;&#x2F; 定义 i，初始化抵消了 extern 的作用。              </p>
+<p>变量只能被定义一次，但是可以多次声明。</p>
+<p>声明和定义的区分很重要</p>
+<p>c++是静态类型语言，其含义是在编译阶段检查类型。</p>
+<h3 id="2-2-3-标识符"><a href="#2-2-3-标识符" class="headerlink" title="2.2.3 标识符"></a>2.2.3 标识符</h3><p>标识符组成：字母、数字、下划线。不能以数字开头，对大小写敏感。标识符的长度没有限制。</p>
+<p>用户自定义的标识符不能连续出现两个下划线，也不能以下划线紧连大写字母开头。定义在函数体外的标识符不能以下划线开头。</p>
+<p>变量命名规范：</p>
+<ol>
+<li>标识符要体现其实际含义。</li>
+<li>变量名一般用小写字母。</li>
+<li>用户自定义的类型一般以大写字母开头。</li>
+<li>包含多个单词的标识符，使用驼峰命名法或使用下划线连接不同单词。</li>
+</ol>
+<p>对于嵌套作用域，可以在内层作用域中重新定义外层作用域已有的名字，但是最好不要这样做。</p>
+<p>2.3 复合类型</p>
+<p>复合类型就是基于其他类型定义的类型，引用和指针是其中两种。</p>
+<h3 id="2-3-1-引用"><a href="#2-3-1-引用" class="headerlink" title="2.3.1 引用"></a>2.3.1 引用</h3><p>引用是给对象起的别名。初始化引用时，是将引用和对象绑定在一起。引用无法重定向，只能一直指向初始值。</p>
+<p>引用必须初始化。引用的初始值必须是一个对象，不能是字面值。</p>
+<p>对引用的所有操作都是对与之绑定的对象的操作。</p>
+<p>引用非对象。</p>
+<p>不能定义对引用的引用，因为引用非对象。</p>
+<p>​                int &amp;r &#x3D; i;              </p>
+<p>引用只能绑定在对象上，不能与字面值或表达式绑定。</p>
+<p>引用只能绑定同类型对象。</p>
+<h3 id="2-3-2-指针"><a href="#2-3-2-指针" class="headerlink" title="2.3.2 指针"></a>2.3.2 指针</h3><p>在块作用域内，指针如果没有被初始化，值将不确定。</p>
+<p>指针必须指向指定的类型，不能指向其他类型。</p>
+<p>​                int i &#x3D; 0; double *dp &#x3D; &amp;i;   &#x2F;&#x2F; 错误 long *lp &#x3D; &amp;i;     &#x2F;&#x2F; 错误 int *ip &#x3D; i;       &#x2F;&#x2F; 这个也是错误的，但 int *ip &#x3D; 0; 是正确的              </p>
+<p>指针与引用的不同：</p>
+<ol>
+<li>指针是一个对象而引用不是；</li>
+<li>指针可以重定向引用不可以；</li>
+<li>有指向指针的指针无引用的引用；</li>
+<li>指针不需要在定义时赋初值而引用需要。</li>
+</ol>
+<p>不能定义指向引用的指针。可以定义指向指针的引用。</p>
+<p>​                int p;  int &amp;r &#x3D; p;      &#x2F;&#x2F; r是对指针p的引用              </p>
+<p>面对如上 *&amp;r 这样比较复杂的指针或引用的声明语句时，从右向左读比较易于弄清。</p>
+<p>利用解引用符（*）可以访问指针指向的对象。</p>
+<p>空指针</p>
+<p>​                int *p &#x3D; nullptr; &#x2F;&#x2F; 三种定义空指针的方式。最好用第一种 int *p &#x3D; 0;  int *p &#x3D; NULL;    &#x2F;&#x2F; NULL 是在头文件 cstdlib 中定义的预处理变量，值为 0。              </p>
+<p>建议初始化所有指针。</p>
+<p>非零指针对应的条件值是 ture，零指针对应的条件值是 false。</p>
+<p>void*指针</p>
+<p>void* 指针和空指针不是一回事。</p>
+<p>void* 指针是特殊的指针类型，可以存放任意对象的地址。它的用处比较有限。</p>
+<h3 id="2-3-3-理解复合类型的声明"><a href="#2-3-3-理解复合类型的声明" class="headerlink" title="2.3.3 理解复合类型的声明"></a>2.3.3 理解复合类型的声明</h3><p>定义复合类型的变量要比定义基本类型的变量复杂很多。</p>
+<p>一条声明语句是由一个基本数据类型和紧随其后的声明符列表组成的。</p>
+<p>引用符 &amp; 和指针符 * 都是类型说明符，类型说明符是声明符的一部分。</p>
+<p>​                int &amp;a&#x3D;b, &amp;c&#x3D;b; int *a&#x3D;nullptr, b&#x3D;1;              </p>
+<h2 id="2-4-const限定符"><a href="#2-4-const限定符" class="headerlink" title="2.4 const限定符"></a>2.4 const限定符</h2><p>const 对象必须初始化，因为一旦创建就不能再改变值。</p>
+<p>默认情况下，const 对象仅在文件内有效。</p>
+<p>如果想在多个文件间共享 const 对象，必须在变量的定义前添加 extern 关键字并在本文件中声明。声明和定义都要加 extern</p>
+<h3 id="2-4-1-const的引用"><a href="#2-4-1-const的引用" class="headerlink" title="2.4.1 const的引用"></a>2.4.1 const的引用</h3><p>常量引用是对 const 的引用，对象不必是常量。对 const 对象的引用也必须是常量。</p>
+<p>引用必须初始化，因此常量引用也必须初始化。</p>
+<p>注意引用不是对象，因此常量引用不是说引用是常量，引用本来就只能绑定一个对象，而是引用不能改变引用的对象了。</p>
+<p>​                const int ci &#x3D; 42;  const int &amp;r &#x3D; ci;  &#x2F;&#x2F; 用于声明引用的 const 都是底层 const              </p>
+<p>不能用非常量引用指向一个常量对象。可以用常量引用指向一个非常量对象。</p>
+<p>引用的类型必须与其所引用对象的类型一致，但是有两个例外。其中一个例外就是初始化常量引用时允许用任意表达式作为初始值（包括常量表达式），只要该表达式结果可以转换为引用的类型。</p>
+<p>​                const int &amp;r &#x3D; 42;  &#x2F;&#x2F; 常量引用可以绑定字面值              </p>
+<p>当用常量引用绑定一个非常量对象时，不能通过引用改变引用对象的值，但是可以通过其他方式改变值。常量指针也一样。</p>
+<h3 id="2-4-2-指针和const"><a href="#2-4-2-指针和const" class="headerlink" title="2.4.2 指针和const"></a>2.4.2 指针和const</h3><p>指向常量的指针的用法和常量引用相似，但是是不一样的。它既可以指向常量也可以指向非常量，不能改变对象的值。但是非常量对象可以通过其他途径改变值</p>
+<h3 id="2-4-3-顶层const"><a href="#2-4-3-顶层const" class="headerlink" title="2.4.3 顶层const"></a>2.4.3 顶层const</h3><p>顶层 const 表示指针本身是个常量，底层 const 表示指针所指的对象是一个常量。顶层 const 对任何数据类型通用，底层 const 只用于引用和指针。</p>
+<p>顶层 const 的指针表示该指针是 const 对象，因此必须初始化。底层 const 的指针则不用。</p>
+<p>实际上只有指针类型既可以是顶层 const 也可以是底层 const，因为引用实际上只能是底层 const，常量引用即为底层 const，不存在顶层 const 的引用。</p>
+<p>​                const int &amp;const p2 &#x3D; p1;&#x2F;&#x2F; 错误              </p>
+<p>从右向左读来判断是顶层 const 还是底层 const。</p>
+<p>对于指针和引用而言，顶层 const 在右边，底层 const 在左边。对于其他类型，全都是顶层 const</p>
+<p>​                const int* const p3 &#x3D; p2; &#x2F;&#x2F; 从右向左读，右侧const是顶层const，表明p3是一个常量，左侧const是底层const，表明指针所指的对象是一个常量 const int* p2 &#x3D; &amp;c;       &#x2F;&#x2F; 这是一个底层const，允许改变 p2 的值 int* const p1 &#x3D; &amp;i;       &#x2F;&#x2F; 这是一个顶层const，不能改变 p1 的值              </p>
+<p>执行对象的拷贝操作时，不能将底层 const 拷贝给非常量，反之可以，非常量将会转化为常量。</p>
+<h3 id="2-4-4-constexpr和常量表达式"><a href="#2-4-4-constexpr和常量表达式" class="headerlink" title="2.4.4 constexpr和常量表达式"></a>2.4.4 constexpr和常量表达式</h3><p>常量表达式是指值不会改变并且在编译过程就能得到计算结果的表达式。</p>
+<p>字面值属于常量表达式，由常量表达式初始化的 const 对象也是常量表达式。</p>
+<p>​                const int a &#x3D; 32;          &#x2F;&#x2F; 是常量表达式 const int b &#x3D; a + 1;       &#x2F;&#x2F; 是常量表达式 const int sz &#x3D; get_size(); &#x2F;&#x2F; 不是常量表达式，因为虽然 sz 是常量，但它的具体值等到运行时才知道。              </p>
+<p>cosntexpr变量</p>
+<p>在实际应用中很难分辨一个初始值是否是常量表达式，通过将变量声明为 constexpr 类型即可由编译器来检查。</p>
+<p>由 constexpr 声明的变量必须用常量表达式初始化。</p>
+<p>建议：如果认定一个变量是常量表达式，就把它声明为 constexpr 类型。</p>
+<p>新标准允许定义 constexpr，这种函数应该足够简单以使得编译时就可以计算其结果。</p>
+<p>不能用普通函数初始化 constexpr 变量，但可以使用 constexpr 函数初始化 constexpr 变量。</p>
+<p>​                constexpr int sz &#x3D; size(); &#x2F;&#x2F;只有当 size() 是一个 constexpr 函数时这才是一条正确的声明语句。              </p>
+<p>字面值类型</p>
+<p>算术类型、引用、指针都属于字面值类型，自定义类则不属于。</p>
+<p>cosntexpr 指针的初始值必须是 nullptr 或 0 或存储于固定地址的对象。函数体之外的对象和静态变量的地址都是固定不变的。</p>
+<p>指针和constexpr</p>
+<p>注意区分 constexpr 和 const 。constexpr 都是顶层 const，仅对指针本身有效。</p>
+<p>​                const int *p &#x3D; nullptr;     &#x2F;&#x2F; p 是一个指向整型常量的指针 constexpr int *q &#x3D; nullptr; &#x2F;&#x2F; q 是一个指向整数的常量指针              </p>
+<p>区分const和constexpr</p>
+<p>constexpr 限定了变量是编译器常量，即变量的值在编译器就可以得到。</p>
+<p>const 则并未区分是编译器常量还是运行期常量。即 const 变量可以在运行期间初始化，只是初始化后就不能再改变了。</p>
+<p>constexpr 变量是真正的“常量”，而 const 现在一般只用来表示 “只读”。</p>
+<h2 id="2-5-处理类型"><a href="#2-5-处理类型" class="headerlink" title="2.5 处理类型"></a>2.5 处理类型</h2><h3 id="2-5-1-类型别名"><a href="#2-5-1-类型别名" class="headerlink" title="2.5.1 类型别名"></a>2.5.1 类型别名</h3><p>有两种方法定义类型别名。</p>
+<p>​                typedef double wages;  &#x2F;&#x2F; 使用 typedef 关键字 using wages &#x3D; double;  &#x2F;&#x2F; 使用 using 关键字进行别名声明              </p>
+<p>typedef 作为声明语句中的基本数据类型的一部分出现。含有 typedef 的声明语句定义的不再是变量而是类型别名。和其他声明语句一样，typedef 的声明语句中也可以包含类型修饰符，从而构造符合类型。</p>
+<p>​                typedef wages base, p; &#x2F;&#x2F; base 是 double 的别名，p 是 double 的别名。              </p>
+<p>指针、常量和类型别名</p>
+<p>​                typedef char* pstring;  const pstring cstr &#x3D; 0; &#x2F;&#x2F; 注意：const 是一个指向 char 的常量指针。不能采用直接替换的方式将其理解为 const char* cstr &#x3D; 0，这是错误的。              </p>
+<h3 id="2-5-2-auto类型说明符"><a href="#2-5-2-auto类型说明符" class="headerlink" title="2.5.2 auto类型说明符"></a>2.5.2 auto类型说明符</h3><p>auto 说明符让编译器根据初始值来分析表达式所属的类型。理解：使用 auto 会增加编译时间，但不会增加运行时间。</p>
+<p>auto 可以在一条语句中声明多个变量，但是多个变量必须是同一个基本数据类型（整型与整型指针和整型引用算一个类型）。</p>
+<p>复合类型、常量和auto</p>
+<p>编译器推断出的 auto 类型有时和初始值并不一样，编译器会进行适当的调整：</p>
+<ol>
+<li>auto 根据引用来推断类型时会以引用对象的类型作为 auto 的类型。</li>
+<li>auto 一般会忽略掉顶层 const，因此对于非指针类型的常量对象，auto 推断出的结果是不含 const 的。如果希望 auto 是一个顶层 const，需要明确指出。</li>
+<li>auto 会保留底层 const。</li>
+</ol>
+<p>概括一下就是 auto 会忽略引用与顶层 const。</p>
+<p>​                const int ci &#x3D; 1, cr &#x3D; ci; auto b &#x3D; ci;       &#x2F;&#x2F; b 是一个普通的 int。 auto c &#x3D; cr;       &#x2F;&#x2F; c 是一个普通的 int。 const auto d &#x3D; ci; &#x2F;&#x2F; d 是一个 const int auto &amp;e &#x3D; ci;      &#x2F;&#x2F; e 是一个常量引用（常量引用是底层 const）。注意这个微妙的地方。 auto f &#x3D; &amp;ci;      &#x2F;&#x2F; f 是一个 const int*（位于左边的 const 是底层 const）              </p>
+<p>int 与 int *、int &amp; 是一个基本数据类型，而 const int 与 int 不是一种类型。</p>
+<p>用 auto 定义引用时，必须用 &amp; 指明要定义的是引用。</p>
+<h3 id="2-5-3-decltype类型指示符"><a href="#2-5-3-decltype类型指示符" class="headerlink" title="2.5.3 decltype类型指示符"></a>2.5.3 decltype类型指示符</h3><p>当希望获得表达式的类型但是不要值的时候，可以使用类型说明符 decltype。</p>
+<p>如果 decltype 使用的表达式是一个变量，则它返回该变量的类型（包括顶层 const 和引用在内）。</p>
+<p>decltype 与 auto 的不同：decltype 不会忽略引用和顶层 const。</p>
+<p>注意当获得的类型是引用时，必须初始化。</p>
+<p>​                const int ci &#x3D; 0, &amp;cj &#x3D; ci; decltype(ci) x &#x3D; 0;  &#x2F;&#x2F; x 的类型是 const int decltype(cj) y &#x3D; x;  &#x2F;&#x2F; y 的类型是 const int&amp; decltype(cj) z; &#x2F;&#x2F; z 是一个引用，必须初始化              </p>
+<p>引用从来都是作为对象的别名出现，只有在 decltype 处是例外。</p>
+<p>decltype 和引用</p>
+<p>如果 decltype 使用的表达式不是一个变量，则 decltype 返回表达式结果对应的类型。可以使用这种方式来保证不获取引用类型。</p>
+<p>注意解引用指针的结果是一个引用类型。给变量加括号的结果也是引用类型。赋值操作的结果也是引用类型。</p>
+<p>​                int i &#x3D; 42, &amp;r &#x3D; i, p; decltype(r+0) b;      &#x2F;&#x2F; b 的类型是 int，因为 r+0 的结果类型是 int。 decltype(p) c &#x3D; i;   &#x2F;&#x2F; c 的类型是 int&amp;。 decltype((i)) d &#x3D; i;  &#x2F;&#x2F; d 的类型是 int&amp;。              </p>
+<p>decltype((var)) 的结果永远是引用，而 decltype(var) 的结果只有当 var 本身就是引用时才是引用。</p>
+<h2 id="2-6-自定义数据结构"><a href="#2-6-自定义数据结构" class="headerlink" title="2.6 自定义数据结构"></a>2.6 自定义数据结构</h2><h3 id="2-6-1-定义sales-data类型"><a href="#2-6-1-定义sales-data类型" class="headerlink" title="2.6.1 定义sales_data类型"></a>2.6.1 定义sales_data类型</h3><p>struct+类名+类体+分号。类体可以为空。</p>
+<p>​                struct Sales_data{};   &#x2F;&#x2F; 注意：结尾加分号              </p>
+<p>定义类时可以给数据成员提供类内初始值以进行初始化。没有类内初始值的成员则被默认初始化。</p>
+<p>类内初始值可以放在花括号中或等号的右边，不能使用圆括号。</p>
+<h3 id="2-6-3-编写自己的头文件"><a href="#2-6-3-编写自己的头文件" class="headerlink" title="2.6.3 编写自己的头文件"></a>2.6.3 编写自己的头文件</h3><p>类通常定义在头文件中，类所在头文件的名字应与类的名字一样。</p>
+<p>头文件通常定义那些只能被定义一次的实体，比如类、const、constexpr 等。</p>
+<p>头文件一旦改变，相关的源文件必须重新编译以获取更新过的声明。</p>
+<p>预处理器概述</p>
+<p>确保头文件多次包含仍能安全工作的常用技术是预处理器。</p>
+<p>预处理变量有两种状态：已定义和未定义。一般把预处理变量的名字全部大写。</p>
+<p>整个程序中的预处理变量包括头文件保护符必须唯一，通常基于头文件中类的名字来构建保护符的名字，以确保其唯一性。</p>
+<p>c++ 中包含三个头文件保护符<strong>：</strong></p>
+<ol>
+<li>#define：把一个名字设定为预处理变量</li>
+<li>#ifndef：当且仅当变量已定义时为真，一旦检查结果为真，则执行后续操作直到遇到 #endif 为止</li>
+<li>#endif</li>
+</ol>
+<p>预处理变量无视作用域的规则，作用范围是文件内</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">张栋梁</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://1921430580.github.io/undefined/54e122cb/">http://1921430580.github.io/undefined/54e122cb/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://1921430580.github.io" target="_blank">my blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊5.j42z6xokck8.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/undefined/602a3097/"><img class="prev-cover" src="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊9.gmvh4e6tfq8.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">常用的十大排序算法</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">张栋梁</div><div class="author-info__description">学习使我快乐</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">12</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Akilarlxh" target="_blank" title="icon-rat"><i class="Github"></i></a><a class="social-icon" href="mailto:Akilarlxh@gmail.com" target="_blank" title="fas fa-envelope"><i class="Email"></i></a><a class="social-icon" href="https://space.bilibili.com/22976782" target="_blank" title="icon-ox"><i class="Bilibili"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC2%E7%AB%A0-%E5%8F%98%E9%87%8F%E5%92%8C%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text">第2章 变量和基本类型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E5%9F%BA%E6%9C%AC%E5%86%85%E7%BD%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.1.</span> <span class="toc-text">2.1 基本内置类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-1-%E7%AE%97%E6%9C%AF%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.1.1.</span> <span class="toc-text">2.1.1 算术类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-2-%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-number">1.1.2.</span> <span class="toc-text">2.1.2 类型转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-3-%E5%AD%97%E9%9D%A2%E5%80%BC%E5%B8%B8%E9%87%8F"><span class="toc-number">1.1.3.</span> <span class="toc-text">2.1.3 字面值常量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E5%8F%98%E9%87%8F"><span class="toc-number">1.2.</span> <span class="toc-text">2.2 变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-1-%E5%8F%98%E9%87%8F%E5%AE%9A%E4%B9%89"><span class="toc-number">1.2.1.</span> <span class="toc-text">2.2.1 变量定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-2-%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E%E5%92%8C%E5%AE%9A%E4%B9%89%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.2.2 变量声明和定义的关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-3-%E6%A0%87%E8%AF%86%E7%AC%A6"><span class="toc-number">1.2.3.</span> <span class="toc-text">2.2.3 标识符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-1-%E5%BC%95%E7%94%A8"><span class="toc-number">1.2.4.</span> <span class="toc-text">2.3.1 引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-2-%E6%8C%87%E9%92%88"><span class="toc-number">1.2.5.</span> <span class="toc-text">2.3.2 指针</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-3-%E7%90%86%E8%A7%A3%E5%A4%8D%E5%90%88%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%A3%B0%E6%98%8E"><span class="toc-number">1.2.6.</span> <span class="toc-text">2.3.3 理解复合类型的声明</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-const%E9%99%90%E5%AE%9A%E7%AC%A6"><span class="toc-number">1.3.</span> <span class="toc-text">2.4 const限定符</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-1-const%E7%9A%84%E5%BC%95%E7%94%A8"><span class="toc-number">1.3.1.</span> <span class="toc-text">2.4.1 const的引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-2-%E6%8C%87%E9%92%88%E5%92%8Cconst"><span class="toc-number">1.3.2.</span> <span class="toc-text">2.4.2 指针和const</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-3-%E9%A1%B6%E5%B1%82const"><span class="toc-number">1.3.3.</span> <span class="toc-text">2.4.3 顶层const</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-4-constexpr%E5%92%8C%E5%B8%B8%E9%87%8F%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">1.3.4.</span> <span class="toc-text">2.4.4 constexpr和常量表达式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-5-%E5%A4%84%E7%90%86%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.4.</span> <span class="toc-text">2.5 处理类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-1-%E7%B1%BB%E5%9E%8B%E5%88%AB%E5%90%8D"><span class="toc-number">1.4.1.</span> <span class="toc-text">2.5.1 类型别名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-2-auto%E7%B1%BB%E5%9E%8B%E8%AF%B4%E6%98%8E%E7%AC%A6"><span class="toc-number">1.4.2.</span> <span class="toc-text">2.5.2 auto类型说明符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-3-decltype%E7%B1%BB%E5%9E%8B%E6%8C%87%E7%A4%BA%E7%AC%A6"><span class="toc-number">1.4.3.</span> <span class="toc-text">2.5.3 decltype类型指示符</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-6-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-number">1.5.</span> <span class="toc-text">2.6 自定义数据结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-1-%E5%AE%9A%E4%B9%89sales-data%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.5.1.</span> <span class="toc-text">2.6.1 定义sales_data类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-3-%E7%BC%96%E5%86%99%E8%87%AA%E5%B7%B1%E7%9A%84%E5%A4%B4%E6%96%87%E4%BB%B6"><span class="toc-number">1.5.2.</span> <span class="toc-text">2.6.3 编写自己的头文件</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recommend-post"><div class="item-headline"><i class="fas fa-dharmachakra"></i><span>相关推荐</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/undefined/403834c2/" title="Python基础学习笔记之变量与运算"><img src="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊2.6x4lyni2m440.webp" alt="Python基础学习笔记之变量与运算"></a><div class="content"><a class="title" href="/undefined/403834c2/" title="Python基础学习笔记之变量与运算">Python基础学习笔记之变量与运算</a><time datetime="2022-04-18" title="发表于 2022-04-18">2022-04-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/undefined/4066/" title="c++学习笔记之预备知识"><img src="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊9.gmvh4e6tfq8.webp" alt="c++学习笔记之预备知识"></a><div class="content"><a class="title" href="/undefined/4066/" title="c++学习笔记之预备知识">c++学习笔记之预备知识</a><time datetime="2022-04-15" title="发表于 2022-04-15">2022-04-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/undefined/84ec9e03/" title="c++笔记之初识c++"><img src="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊6.16806l3le8dc.webp" alt="c++笔记之初识c++"></a><div class="content"><a class="title" href="/undefined/84ec9e03/" title="c++笔记之初识c++">c++笔记之初识c++</a><time datetime="2022-04-18" title="发表于 2022-04-18">2022-04-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/undefined/37274411/" title="算法与数据结构学习笔记之"><img src="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊8.2aual18ytoe8.webp" alt="算法与数据结构学习笔记之"></a><div class="content"><a class="title" href="/undefined/37274411/" title="算法与数据结构学习笔记之">算法与数据结构学习笔记之</a><time datetime="2022-04-18" title="发表于 2022-04-18">2022-04-18</time></div></div></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/undefined/54e122cb/" title="c++笔记之变量和基本类型"><img src="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊5.j42z6xokck8.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="c++笔记之变量和基本类型"/></a><div class="content"><a class="title" href="/undefined/54e122cb/" title="c++笔记之变量和基本类型">c++笔记之变量和基本类型</a><time datetime="2022-04-21T08:43:07.000Z" title="发表于 2022-04-21 16:43:07">2022-04-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/undefined/602a3097/" title="常用的十大排序算法"><img src="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊9.gmvh4e6tfq8.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="常用的十大排序算法"/></a><div class="content"><a class="title" href="/undefined/602a3097/" title="常用的十大排序算法">常用的十大排序算法</a><time datetime="2022-04-21T01:17:54.000Z" title="发表于 2022-04-21 09:17:54">2022-04-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/undefined/403834c2/" title="Python基础学习笔记之变量与运算"><img src="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊2.6x4lyni2m440.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python基础学习笔记之变量与运算"/></a><div class="content"><a class="title" href="/undefined/403834c2/" title="Python基础学习笔记之变量与运算">Python基础学习笔记之变量与运算</a><time datetime="2022-04-18T07:16:54.000Z" title="发表于 2022-04-18 15:16:54">2022-04-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/undefined/ccd12740/" title="编程学习踩坑之路"><img src="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊6.16806l3le8dc.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="编程学习踩坑之路"/></a><div class="content"><a class="title" href="/undefined/ccd12740/" title="编程学习踩坑之路">编程学习踩坑之路</a><time datetime="2022-04-18T01:35:41.000Z" title="发表于 2022-04-18 09:35:41">2022-04-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/undefined/37274411/" title="算法与数据结构学习笔记之"><img src="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊8.2aual18ytoe8.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="算法与数据结构学习笔记之"/></a><div class="content"><a class="title" href="/undefined/37274411/" title="算法与数据结构学习笔记之">算法与数据结构学习笔记之</a><time datetime="2022-04-18T01:27:35.000Z" title="发表于 2022-04-18 09:27:35">2022-04-18</time></div></div></div></div></div></div></main><footer id="footer" style="background: rgba(0, 0, 0, 0)"><div id="footer-wrap"><div class="copyright">&copy;2022 By 张栋梁</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"><script>(() => {
+  const $mermaidWrap = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaidWrap.length) {
+    window.runMermaid = () => {
+      window.loadMermaid = true
+      const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+      Array.from($mermaidWrap).forEach((item, index) => {
+        const mermaidSrc = item.firstElementChild
+        const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+        const mermaidID = 'mermaid-' + index
+        const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+        mermaid.mermaidAPI.render(mermaidID, mermaidDefinition, (svgCode) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svgCode)
+        })
+      })
+    }
+
+    const loadMermaid = () => {
+      window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaid)
+    }
+
+    window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+  }
+})()</script><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: '',
+      appKey: '',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script async data-pjax src="/js/randombg.js"></script><script defer src="/live2d-widget/autoload.js"></script><script async src="//at.alicdn.com/t/font_3334759_mnvqntvw5u.js<script defer data-pjax src="/live2d-widget/autoload.js"></script><script async data-pjax src="//at.alicdn.com/t/font_3334759_mnvqntvw5u.js<script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" data-mobile="false" data-text="富强,文明,民主,和谐,公平,正义,爱国,平等,自由" data-fontsize="15px" data-random="false" async="async"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --> <script data-pjax>if(document.getElementById('recent-posts') && (location.pathname ==='/'|| '/' ==='all')){
+    var parent = document.getElementById('recent-posts');
+    var child = '<div class="recent-post-item" style="width:100%;height: auto"><div id="catalog_magnet"><div class="magnet_item"><a class="magnet_link" href="http://1921430580.github.io/categories/电脑/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">📚 某人の电脑相关 (1)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="http://1921430580.github.io/categories/优化日志/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🐱‍👓 某人の优化日志 (1)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="http://1921430580.github.io/categories/踩过的坑/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">👩‍💻 某人の踩坑历程 (2)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="http://1921430580.github.io/categories/学习笔记/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">📒 某人の学习笔记 (1)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="http://1921430580.github.io/categories/随笔/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">💡 某人の胡思乱想 (2)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item" style="visibility: hidden"></div><a class="magnet_link_more"  href="http://1921430580.github.io/categories" style="flex:1;text-align: center;margin-bottom: 10px;">查看更多...</a></div></div>';
+    console.log('已挂载magnet')
+    parent.insertAdjacentHTML("afterbegin",child)}
+     </script><style>#catalog_magnet{flex-wrap: wrap;display: flex;width:100%;justify-content:space-between;padding: 10px 10px 0 10px;align-content: flex-start;}.magnet_item{flex-basis: calc(50% - 5px);background: #f2f2f2;margin-bottom: 10px;border-radius: 8px;transition: all 0.2s ease-in-out;}.magnet_item:hover{background: #b30070}.magnet_link_more{color:#555}.magnet_link{color:black}.magnet_link:hover{color:white}@media screen and (max-width: 600px) {.magnet_item {flex-basis: 100%;}}.magnet_link_context{display:flex;padding: 10px;font-size:16px;transition: all 0.2s ease-in-out;}.magnet_link_context:hover{padding: 10px 20px;}</style>
+    <style></style><script data-pjax>function history_calendar_injector_config(){
+                var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+                var item_html = '<div class="card-widget card-history"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span>那年今日</span></div><div id="history-baidu" style="height: 100px;overflow: hidden"><div class="history_swiper-container" id="history-container" style="width: 100%;height: 100%"><div class="swiper-wrapper" id="history_container_wrapper" style="height:20px"></div></div></div></div>';
+                console.log('已挂载history_calendar')
+                // parent_div_git.innerHTML=item_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",item_html) // 有报错，但不影响使用(支持pjax跳转)
+            }if( document.getElementsByClassName('sticky_layout')[0] && (location.pathname ==='all'|| 'all' ==='all')){
+
+            history_calendar_injector_config()
+        } </script><script data-pjax  src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script><script data-pjax src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/js/main.js"></script><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '1s');
+    arr[i].setAttribute('data-wow-delay', '500ms');
+    arr[i].setAttribute('data-wow-offset', '70');
+    arr[i].setAttribute('data-wow-iteration', '1');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-widget');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script></div><script defer src="https://unpkg.zhimg.com/hexo-butterfly-wowjs/lib/wow.min.js"></script><script defer src="https://unpkg.zhimg.com/hexo-butterfly-wowjs/lib/wow_init.js"></script><!-- hexo injector body_end end --></body></html>

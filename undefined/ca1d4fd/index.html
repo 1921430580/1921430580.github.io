@@ -1,0 +1,520 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>c++学习笔记之表达式 | my blog</title><meta name="keywords" content="学习笔记"><meta name="author" content="张栋梁"><meta name="copyright" content="张栋梁"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一个学习笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="c++学习笔记之表达式">
+<meta property="og:url" content="http://1921430580.github.io/undefined/ca1d4fd/index.html">
+<meta property="og:site_name" content="my blog">
+<meta property="og:description" content="一个学习笔记">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊3.4wusp7b98ja0.webp">
+<meta property="article:published_time" content="2022-04-26T08:23:36.000Z">
+<meta property="article:modified_time" content="2022-05-08T02:30:45.214Z">
+<meta property="article:author" content="张栋梁">
+<meta property="article:tag" content="学习笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊3.4wusp7b98ja0.webp"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://1921430580.github.io/undefined/ca1d4fd/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: 张栋梁","link":"链接: ","source":"来源: my blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'c++学习笔记之表达式',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2022-05-08 10:30:45'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css"  media="defer" onload="this.media='all'"><link rel="stylesheet" href="/css/custom.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><link rel="stylesheet" href="https://unpkg.zhimg.com/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"><link rel="alternate" href="/atom.xml" title="my blog" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">16</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw icon-tiger"></i><span> 拓展</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/comments/"><i class="fa-fw fa fa-comments"></i><span> 留言</span></a></li><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊3.4wusp7b98ja0.webp')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">my blog</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw icon-tiger"></i><span> 拓展</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/comments/"><i class="fa-fw fa fa-comments"></i><span> 留言</span></a></li><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">c++学习笔记之表达式</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-04-26T08:23:36.000Z" title="发表于 2022-04-26 16:23:36">2022-04-26</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-05-08T02:30:45.214Z" title="更新于 2022-05-08 10:30:45">2022-05-08</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/c-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">c++学习笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">4.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>13分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="c++学习笔记之表达式"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p><strong>问题</strong></p>
+<ol>
+<li>左值与右值的不同</li>
+<li>左值与右值对 decltype 的影响</li>
+<li>整数除法的结果是如何舍入的</li>
+<li>理解运算符的返回值</li>
+<li>区分递增运算符的前置与后置版本。</li>
+<li>位运算符的使用要注意什么</li>
+<li>运算符的结合顺序是怎样的</li>
+<li>sizeof 运算符的返回值是什么</li>
+<li>常见的隐式类型转换的方式</li>
+<li>四种显示类型转换是什么</li>
+<li>常见的如 int 转换为 double 这样的转换用什么</li>
+<li>const_cast 用于什么时候</li>
+<li>旧式的两种强制类型转换方式</li>
+<li>需要记住的典型运算符的优先级</li>
+</ol>
+<p><strong>回答</strong></p>
+<ol>
+<li>使用左值使用的是<strong>对象的身份（在内存中的位置）</strong>，使用右值使用的是<strong>对象的值（内容）</strong>。需要右值的地方可以用左值代替，反之不行。</li>
+<li><strong>如果 decltype 中的表达式返回的是左值，那么 decltype 得到是一个引用类型。</strong></li>
+<li>向零舍入</li>
+<li>采用运算符进行各类运算时，把运算符理解为函数，返回值是运算符函数的返回值，cin&gt;&gt;10 的返回值是运算符 &gt;&gt; 的返回值</li>
+<li>前置版本直接返回改变后的运算对象，后置版本返回的是运算对象改变前的原始值的副本。对迭代器使用后置递增消耗很大。</li>
+<li>建议使用位运算符处理无符号类型。C++中使用位运算符处理带符号数的运算结果依赖于机器。</li>
+<li>如果优先级相同，除了赋值运算符，其他运算符都是从左向右结合。</li>
+<li>sizeof 也是运算符，它返回一条表达式或一个类型所占的<strong>字节数</strong>。</li>
+<li>算数运算中小整型（bool,char,short）提升为大整型（int）、整型转换为浮点型，条件里非布尔值转换为布尔值，初始化时初始值转换为变量的类型，赋值时右侧转换为左侧类型，算术运算或关系运算的运算对象被转换为同一种类型。数组和函数转换为指针，指向非常量的指针转换为指向常量的指针，c风格字符串转换为string，cin&gt;&gt;s 返回的的 cin 转换为 bool 值。</li>
+<li><strong>static_cast(expression), const_cast</strong>, dynamic_cast, reinterpret_cast(不要用它)。</li>
+<li>使用 static_cast(num) 来转换。</li>
+<li>const_cast 用于移除或增加对象的底层 const，即用于使不能修改引用对象值的引用和不能修改指向对象值的指针变成可以修改的，或者反过来。</li>
+<li>int(a) 和 (int)a。两种都可以，但是建议使用新式的代替。</li>
+<li>作用域运算符优先级是最高的，成员访问运算符(. 和 -&gt;)的优先级高于括号，也是非常高的。递增和递减的优先级也很高，是括号之下最高的。</li>
+</ol>
+<p><strong>第4章 表达式</strong></p>
+<p><strong>4.1 基础</strong></p>
+<p><strong>4.1.1 基本概念</strong></p>
+<p>​		表达式由一个或多个运算对象（operand）组成，对表达式求值将得到一个结果。<br>​		字面值和变量是最简单的表达式。<br>​		把运算符和运算对象结合起来可以生产较复杂的表达式。</p>
+<p>​		一元运算符：作用域一个运算对象的运算符，如取地址符（&amp;）和解引用符（*）<br>​		二元运算符：要求两个运算对象的类型相同或可以转换为同一种类型。</p>
+<p>​		小整型（bool, char, short）通常会被提升为大整型，主要是 int。</p>
+<p>​		运算符重载：当运算符作用于类类型的对象时，用户可以自行定义含义，即重载运算符。</p>
+<p>例：IO库的&gt;&gt;和&lt;&lt;，string对象、vector对象和迭代器使用的运算符</p>
+<p><strong>左值和右值</strong></p>
+<p>C++表达式要么是左值，要么是右值<br>        C语言：左值可以位于赋值语句的左侧、右值不能。<br>        C++语言中，要复杂得多<br>                右值：取不到地址的表达式<br>                左值：能取到地址的表达式<br>                        常量对象为代表的左值不能作为赋值语句的左侧运算对象<br>                        某些表达式的求值结果是对象，但他们是右值</p>
+<p>当一个对象被作用右值的时候，用的是对象的值（内存中的内容）<br>当一个对象被当做左值的时候，用的是对象的身份（内存中的位置）</p>
+<p>通常情况：左值可以当成右值，实际使用的是它的内容（值）。不能把右值当成左值（也就是位置）</p>
+<p>​		取地址符作用于一个左值运算对象，返回一个指向该运算对象的指针，这个指针是一个右值。<br>​		内置解引用运算符、下标运算符、迭代器解引用运算符、string和vector的下标运算符的求值结果都是左值</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">如果表达式的求值结果是左值，<span class="keyword">decltype</span>作用于该表达式（不是变量）得到一个引用类型。例如，对于<span class="type">int</span> *p ：</span><br><span class="line">因为解引用运算符生成左值，所有<span class="keyword">decltype</span>(*p)的结果是<span class="type">int</span>&amp;</span><br><span class="line">因为取地址运算符生成右值，所以<span class="keyword">decltype</span>(&amp;p)的结果是<span class="type">int</span> **</span><br></pre></td></tr></table></figure>
+
+<p>运算符对于作用对象是左值还是右值会有要求，比如赋值运算符的左侧运算对象必须是左值。</p>
+<p><strong>4.1.2 优先级与结合律</strong></p>
+<p>表达式 的计算结果，依赖运算符的优先级（precedence）、结合律（associativity） 以及运算对象的求值顺序（order of evaluation）</p>
+<p><strong>左结合律</strong>：如果运算符优先级相同，按照从左向右的顺序组合运算对象。大部分二元运算符满足左结合律。</p>
+<p><strong>4.1.3 求值顺序</strong></p>
+<p><strong>4种运算符</strong>明确规定了运算对象的求值顺序：逻辑与(&amp;&amp;)、逻辑或(||)、条件(?:)、逗号(,)</p>
+<p><strong>处理复合表达式的两个建议：</strong></p>
+<ol>
+<li>不确定优先级与结合律时使用括号</li>
+<li>如果改变了某个运算对象的值，在同一表达式中不要再使用该运算对象。</li>
+</ol>
+<p><strong>4.2 算术运算符</strong></p>
+<p>算术运算符有 3 组，按优先级从高到低依次是</p>
+<ol>
+<li>+、- ：一元正号与一元负号</li>
+<li>*、&#x2F;、% ：乘法、除法、求余</li>
+<li>+、- ：加法、减法</li>
+</ol>
+<p>注意一元正负号的优先级最高，求余也是一种算术运算。</p>
+<p>一元负号运算符对运算对象值取负后，返回其（提升后的）副本</p>
+<p>整数除法的结果是向零舍入。</p>
+<p>求余运算符的运算对象必须是整数，<strong>运算结果始终与被除数符号相同</strong></p>
+<p><strong>4.3 逻辑和关系运算符</strong></p>
+<ul>
+<li>逻辑运算符：！、&amp;&amp;、||。逻辑运算符的作用对象必须是能转换成布尔值的类型</li>
+<li>关系运算符：&lt;, &lt;&#x3D;, &gt;, &gt;&#x3D;, !&#x3D;, &#x3D;&#x3D; ：大于小于的优先级高于等于和不等于</li>
+</ul>
+<p>逻辑运算符与关系运算符的求值结果都是布尔值。</p>
+<p>逻辑与和逻辑或都是先求左侧对象的值再求右侧。也就是 &amp;&amp; 和 || 两个运算符自带了个 if 的功能。</p>
+<p><strong>布尔字面值</strong></p>
+<p>使用算术值做条件时直接用，不要与布尔值做比较</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(a);<span class="comment">//正确</span></span><br><span class="line"><span class="keyword">if</span>(a == <span class="literal">true</span>);<span class="comment">//错误：会将 true 先转换为 int 再比较，比较结果是不相等</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>4.4 赋值运算符</strong></p>
+<p>赋值运算符的左侧运算对象必须是一个可修改的左值</p>
+<p>C++ 11 允许使用花括号括起来的初始值列表作为右侧运算对象。初始化列表可以为空，此时将进行值初始化。</p>
+<p>赋值运算符满足<strong>右结合律</strong>。 赋值运算符优先级较低。</p>
+<p><strong>复合赋值运算符</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+=; -=; *=; /=; %=; &lt;&lt;=; &gt;&gt;=; &amp;=; ^=; |=;</span><br></pre></td></tr></table></figure>
+
+<p>位运算也可以使用赋值运算符。</p>
+<p>复合赋值运算符只求值一次，而普通运算符需要两次。(a&#x3D;a+1 要先求一次 a+1，再将结果赋值给 a)</p>
+<p><strong>4.5 递增和递减运算符</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> i = <span class="number">0</span>, j;</span><br><span class="line">j = ++i; <span class="comment">// j=1,i=1:前置版本，首先将运算对象加 1，然后将改变后的对象作为求值结果，得到递增之后的值，将对象本身作为左值返回</span></span><br><span class="line">j = i++; <span class="comment">// j=1,i=2;后置版本，也是将运算对象加 1，但是求值结果是运算对象改变之前那个值的副本。得到递增之前的值，将对象的原始值的副本返回。</span></span><br></pre></td></tr></table></figure>
+
+<p>如无必要，不要使用后置版本。</p>
+<p><strong>在一条语句中混用解引用和递增运算符</strong></p>
+<p>*<strong>p++</strong> ：p++将 p 的值加一，然后返回 p 的初始值的副本作为求值结果用于解引用。(递增运算符优先级高于解引用)。推荐使用这种写法。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> pbeg = v.<span class="built_in">begin</span>();</span><br><span class="line"><span class="comment">//输出元素直到遇到第一个负值</span></span><br><span class="line"><span class="keyword">while</span> (pbeg != v.<span class="built_in">end</span>() &amp;&amp; *beg &gt;= <span class="number">0</span>)</span><br><span class="line">	cout &lt;&lt; *pbeg++ &lt;&lt; endl; <span class="comment">//输出当前值并将pbg移动到下一个元素</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>4.6 成员访问运算符</strong></p>
+<p>点运算符和箭头运算符都可以用来访问成员。</p>
+<p>ptr-&gt;mem 等价于 (*ptr)-&gt;mem</p>
+<p><strong>4.7 条件运算符</strong></p>
+<p>cond ? expr1 : expr2</p>
+<p>可以使用嵌套条件运算符</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">finalgrade = (grade&gt;<span class="number">90</span>) ? <span class="string">&quot;high pass&quot;</span> : (grade&lt;<span class="number">60</span>) ? <span class="string">&quot;fail&quot;</span> : <span class="string">&quot;pass&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>条件运算符优先级非常低</strong>，通常都要加括号</p>
+<p><strong>4.8 位运算符</strong></p>
+<p>位运算符作用于整数类型的对象。</p>
+<p>位运算符有六种：位求反、位与、位或、位异或、左移、右移。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~a; a&amp;b; a|b; a^b; a&lt;&lt;<span class="number">2</span>; a&gt;&gt;<span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>如果运算对象是“小整型”，值会被自动提升为较大的整数类型。</strong></p>
+<p>运算对象可以带符号，也可以不带符号。不带符号的运算结果是固定的，<strong>带符号的运算结果依赖于机器</strong>。</p>
+<p>左移操作处理带符号值是一种未定义的行为。</p>
+<p><strong>在 C++ 中，建议仅用位运算符来处理无符号类型。</strong></p>
+<p><strong>移位运算符</strong></p>
+<p>使用移位运算符，移动的位数必须<strong>严格小于</strong>结果的位数，否则会产生未定义的行为。</p>
+<p>&lt;&lt; 运算符在右侧插入 0，左侧移动超出边界的值舍弃掉。</p>
+<p>&gt;&gt; 运算符处理无符号数时在左侧插入 0，右侧移动超出边界的值舍弃掉。</p>
+<p>&gt;&gt; 运算符处理有符号数时可能在左侧插入 0 也可能插入符号位的副本，由机器决定使用哪种方式。</p>
+<p>标准 IO 库所使用的 &lt;&lt; 和 &gt;&gt; 都是<strong>重载版本</strong>。</p>
+<p>移位运算符满足左结合律，以下两种等价。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cout &lt;&lt; a &lt;&lt; b &lt;&lt; endl;</span><br><span class="line">((cout &lt;&lt; a) &lt;&lt;b ) &lt;&lt; endl;</span><br></pre></td></tr></table></figure>
+
+<p><strong>位求反、位与、位或、位异或</strong></p>
+<p>这几种运算符处理 char 时，都会把 char 类型的运算对象首先零扩展提升成 int 类型再进行位运算。</p>
+<p><strong>在写代码时，考虑到可移植性，选取数据类型应考虑到某一类型的最大字节和最小字节，比如 int 的最小位是 2 字节。</strong></p>
+<p><strong>4.9 sizeof运算符</strong></p>
+<p>sizeof 是一个运算符。</p>
+<p>sizeof 返回<strong>一条表达式</strong>或<strong>一个类型名字</strong>所占的字节数，值为 size_t 类型。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sizeof</span>(type)</span><br><span class="line"><span class="keyword">sizeof</span> expr;<span class="comment">//返回表达式结果类型的大小</span></span><br></pre></td></tr></table></figure>
+
+<p>对数组执行 sizeof 运算符得到的是整个数组所占空间的大小。不会把数组转换为指针来处理。</p>
+<p>但是对指针执行 sizeof 运算符得到的是指针类型的大小，也就是 8。</p>
+<p>对 string 或 vector 对象执行 sizeof 运算只返回<strong>该类型固定部分的大小</strong>，不会计算对象中的元素占了多少空间。</p>
+<p>可以用 sizeof 获得数组中元素的个数：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sizeof</span>(arr)/<span class="built_in">sizeof</span>(*arr);<span class="comment">//返回的是数组 arr 的元素数量</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>4.10 逗号运算符</strong></p>
+<p>在 for 循环中可以用逗号分隔两个不同的条件</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i!=n; i++,j++)</span><br></pre></td></tr></table></figure>
+
+<p>注意不要在判断条件那里使用逗号分隔不同的条件，那样只会返回逗号分隔的最后一个表达式的值。</p>
+<p><strong>4.11 类型转换</strong></p>
+<p>c++ 不会直接将两个不同类型的值相加，会先通过类型转换把运算对象的类型统一后再求值。</p>
+<p><strong>隐式类型转换****的发生场景</strong></p>
+<ol>
+<li>比 int 类型小的整型值首先提升为较大的整数类型</li>
+<li>在条件里，把非布尔值转换成布尔值</li>
+<li>初始化过程中，初始值转换为变量的类型</li>
+<li>赋值时，右侧运算对象转换成左侧类型</li>
+<li>算数运算或关系运算的运算对象有多种类型，转换成一种。</li>
+</ol>
+<p><strong>4.11.1 算术转换</strong></p>
+<p>运算符的运算对象将转换成所有运算对象中最宽的类型。如果表达式中既有整型也有浮点型，一般会<strong>把整型转换为浮点型</strong>。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3.14159L</span> + <span class="string">&#x27;a&#x27;</span>;<span class="comment">//先将&#x27;a&#x27;提升成 int，然后把 int 转换成 long double</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>整型提升</strong></p>
+<p>整型提升把小整数类型（包括 char、bool等）转换成较大的整数类型。如果 int 可以就转换成 int，否则提升成 unsigned int 类型</p>
+<p><strong>无符号类型的运算对象</strong></p>
+<p>如果一个是无符号一个带符号。如果无符号类型不小于带符号类型（比如都是 4 字节），则带符号转换为无符号</p>
+<p>如果无符号类型小于带符号，转换结果依赖机器。尽量避免。</p>
+<p><strong>4.11.2 其他隐式类型转换</strong></p>
+<p><strong>数组转换成指针</strong></p>
+<p>大多数情况下数组自动转换成指向数组首元素的指针。（decltype关键字参数、取地址符(&amp;)、sizeof、typeid 都不会发生这种转换）</p>
+<p><strong>指针的转换</strong></p>
+<p>0 或 nullptr 都能转换成任意指针类型。指向非常量的指针能转换成 **void***。指向所有对象的指针都能转换成 **const void***。</p>
+<p><strong>转换成常量</strong></p>
+<p>指向非常量的指针转换成指向相应常量类型的指针</p>
+<p><strong>类类型定义的转换</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(cin&gt;&gt;s);<span class="comment">//将 cin 转换为 bool 值</span></span><br><span class="line">string s = <span class="string">&quot;value&quot;</span>;<span class="comment">//将 c 风格字符串转换为 string</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>4.11.3 显式转换</strong></p>
+<p><strong>显示转换</strong>即使用<strong>强制类型转换</strong>。</p>
+<p>强制类型转换<strong>非常危险</strong>，尽量避免使用。如果使用了，应反复思考是否可以用其他方式代替。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">castname</span>&lt;type&gt;(expression);</span><br></pre></td></tr></table></figure>
+
+<p>castname 有四种：<strong>static_cast、dynamic_cast、const_cast、reinterpret_cast</strong> 。它指定了执行哪种转换。</p>
+<p><strong>static_cast</strong></p>
+<p>任何类型转换，只要不包含底层 const，都可以用 static_cast</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">double</span> slope = <span class="built_in">static_cast</span>&lt;<span class="type">double</span>&gt;(j)/i; <span class="comment">//将 j 转换成 double 以便执行浮点数除法</span></span><br></pre></td></tr></table></figure>
+
+<p>当把较大的类型转换为较小的类型时，static_cast 很有用。这时它告诉读者和编译器：我们知道且不在乎精度损失。平时编译器会给警告，显式转换后就不警告了。</p>
+<p><strong>const_cast</strong></p>
+<p>const_cast 只能改变对象的底层 const。可以去掉或增加 const 性质。</p>
+<p><strong>只有</strong> const_cast 能改变表达式的常量属性，其他都不行。</p>
+<p>cosnt_cast 常用于有函数重载的上下文中。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">string&amp; s;</span><br><span class="line"><span class="keyword">const_cast</span> &lt;<span class="type">const</span> string&amp;&gt; (s);<span class="comment">// 将 s 转换为常量引用</span></span><br><span class="line"><span class="keyword">const_cast</span> &lt;string&amp;&gt; (s);<span class="comment">// 将 s 转换回非常量引用</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>reinterpret_cast</strong></p>
+<p>它依赖于机器，使用门槛很高，且使用时充满风险，<strong>不要用它</strong>。</p>
+<p><strong>旧式的强制类型转换</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span>(a);<span class="comment">// 函数形式的强制类型转换</span></span><br><span class="line">(<span class="type">int</span>)a;<span class="comment">// c 语言风格的强制类型转换</span></span><br></pre></td></tr></table></figure>
+
+<p>旧式的强制类型转换本质上采用 const_cast、static_cast 或 reinterpret_cast 的一种。</p>
+<p>旧式与新式相比没那么清晰明了，如果出现问题，追踪困难。</p>
+<p><strong>4.12 运算符优先级表</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">:: <span class="comment">//作用域</span></span><br><span class="line">. 和 -&gt; <span class="comment">//成员访问。注意它非常高，比括号还高。</span></span><br><span class="line">[] 和 ()</span><br><span class="line">++、-- <span class="comment">//注意递增递减运算符的优先级非常高，括号之下最高的。</span></span><br><span class="line"></span><br><span class="line">, <span class="comment">//逗号是最低的</span></span><br></pre></td></tr></table></figure>
+
+<p>​    <img src="https://note.youdao.com/yws/public/resource/9f031e468a3ae180f86b9aaa422e0dd3/xmlnote/451874ADAE37439E8F9CEAA80060296F/52205" alt="0"></p>
+<p>​    <img src="https://note.youdao.com/yws/public/resource/9f031e468a3ae180f86b9aaa422e0dd3/xmlnote/DFA276B09A874DA9899D5ED6577886E3/52202" alt="0"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">张栋梁</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://1921430580.github.io/undefined/ca1d4fd/">http://1921430580.github.io/undefined/ca1d4fd/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://1921430580.github.io" target="_blank">my blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊3.4wusp7b98ja0.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/undefined/7f71bab2/"><img class="prev-cover" src="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊1.69vym0dr01w0.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">c++笔记之字符串、向量、和数组</div></div></a></div><div class="next-post pull-right"><a href="/undefined/ec114a8d/"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊9.gmvh4e6tfq8.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">c++学习笔记之语句</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">张栋梁</div><div class="author-info__description">学习使我快乐</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">16</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Akilarlxh" target="_blank" title="icon-rat"><i class="Github"></i></a><a class="social-icon" href="mailto:Akilarlxh@gmail.com" target="_blank" title="fas fa-envelope"><i class="Email"></i></a><a class="social-icon" href="https://space.bilibili.com/22976782" target="_blank" title="icon-ox"><i class="Bilibili"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recommend-post"><div class="item-headline"><i class="fas fa-dharmachakra"></i><span>相关推荐</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/undefined/403834c2/" title="Python基础学习笔记之变量与运算"><img src="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊4.47w46o5asxw0.webp" alt="Python基础学习笔记之变量与运算"></a><div class="content"><a class="title" href="/undefined/403834c2/" title="Python基础学习笔记之变量与运算">Python基础学习笔记之变量与运算</a><time datetime="2022-04-18" title="发表于 2022-04-18">2022-04-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/undefined/4066/" title="c++学习笔记之预备知识"><img src="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊6.16806l3le8dc.webp" alt="c++学习笔记之预备知识"></a><div class="content"><a class="title" href="/undefined/4066/" title="c++学习笔记之预备知识">c++学习笔记之预备知识</a><time datetime="2022-04-15" title="发表于 2022-04-15">2022-04-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/undefined/84ec9e03/" title="c++笔记之初识c++"><img src="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊7.16nuvow0fdmk.webp" alt="c++笔记之初识c++"></a><div class="content"><a class="title" href="/undefined/84ec9e03/" title="c++笔记之初识c++">c++笔记之初识c++</a><time datetime="2022-04-18" title="发表于 2022-04-18">2022-04-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/undefined/2e91ca60/" title="c++学习笔记之函数"><img src="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊7.16nuvow0fdmk.webp" alt="c++学习笔记之函数"></a><div class="content"><a class="title" href="/undefined/2e91ca60/" title="c++学习笔记之函数">c++学习笔记之函数</a><time datetime="2022-05-08" title="发表于 2022-05-08">2022-05-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/undefined/54e122cb/" title="c++笔记之变量和基本类型"><img src="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊3.4wusp7b98ja0.webp" alt="c++笔记之变量和基本类型"></a><div class="content"><a class="title" href="/undefined/54e122cb/" title="c++笔记之变量和基本类型">c++笔记之变量和基本类型</a><time datetime="2022-04-21" title="发表于 2022-04-21">2022-04-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/undefined/ec114a8d/" title="c++学习笔记之语句"><img src="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊9.gmvh4e6tfq8.webp" alt="c++学习笔记之语句"></a><div class="content"><a class="title" href="/undefined/ec114a8d/" title="c++学习笔记之语句">c++学习笔记之语句</a><time datetime="2022-04-29" title="发表于 2022-04-29">2022-04-29</time></div></div></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/undefined/2e91ca60/" title="c++学习笔记之函数"><img src="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊7.16nuvow0fdmk.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="c++学习笔记之函数"/></a><div class="content"><a class="title" href="/undefined/2e91ca60/" title="c++学习笔记之函数">c++学习笔记之函数</a><time datetime="2022-05-08T02:18:18.000Z" title="发表于 2022-05-08 10:18:18">2022-05-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/undefined/ec114a8d/" title="c++学习笔记之语句"><img src="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊9.gmvh4e6tfq8.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="c++学习笔记之语句"/></a><div class="content"><a class="title" href="/undefined/ec114a8d/" title="c++学习笔记之语句">c++学习笔记之语句</a><time datetime="2022-04-29T00:38:02.000Z" title="发表于 2022-04-29 08:38:02">2022-04-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/undefined/ca1d4fd/" title="c++学习笔记之表达式"><img src="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊3.4wusp7b98ja0.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="c++学习笔记之表达式"/></a><div class="content"><a class="title" href="/undefined/ca1d4fd/" title="c++学习笔记之表达式">c++学习笔记之表达式</a><time datetime="2022-04-26T08:23:36.000Z" title="发表于 2022-04-26 16:23:36">2022-04-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/undefined/7f71bab2/" title="c++笔记之字符串、向量、和数组"><img src="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊1.69vym0dr01w0.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="c++笔记之字符串、向量、和数组"/></a><div class="content"><a class="title" href="/undefined/7f71bab2/" title="c++笔记之字符串、向量、和数组">c++笔记之字符串、向量、和数组</a><time datetime="2022-04-23T03:39:19.000Z" title="发表于 2022-04-23 11:39:19">2022-04-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/undefined/54e122cb/" title="c++笔记之变量和基本类型"><img src="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊3.4wusp7b98ja0.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="c++笔记之变量和基本类型"/></a><div class="content"><a class="title" href="/undefined/54e122cb/" title="c++笔记之变量和基本类型">c++笔记之变量和基本类型</a><time datetime="2022-04-21T08:43:07.000Z" title="发表于 2022-04-21 16:43:07">2022-04-21</time></div></div></div></div></div></div></main><footer id="footer" style="background: rgba(0, 0, 0, 0)"><div id="footer-wrap"><div class="copyright">&copy;2022 By 张栋梁</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"><script>(() => {
+  const $mermaidWrap = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaidWrap.length) {
+    window.runMermaid = () => {
+      window.loadMermaid = true
+      const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+      Array.from($mermaidWrap).forEach((item, index) => {
+        const mermaidSrc = item.firstElementChild
+        const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+        const mermaidID = 'mermaid-' + index
+        const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+        mermaid.mermaidAPI.render(mermaidID, mermaidDefinition, (svgCode) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svgCode)
+        })
+      })
+    }
+
+    const loadMermaid = () => {
+      window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaid)
+    }
+
+    window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+  }
+})()</script><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: '',
+      appKey: '',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script async data-pjax src="/js/randombg.js"></script><script defer src="/live2d-widget/autoload.js"></script><script async src="//at.alicdn.com/t/font_3334759_mnvqntvw5u.js<script defer data-pjax src="/live2d-widget/autoload.js"></script><script async data-pjax src="//at.alicdn.com/t/font_3334759_mnvqntvw5u.js<script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" data-mobile="false" data-text="富强,文明,民主,和谐,公平,正义,爱国,平等,自由" data-fontsize="15px" data-random="false" async="async"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --> <script data-pjax>if(document.getElementById('recent-posts') && (location.pathname ==='/'|| '/' ==='all')){
+    var parent = document.getElementById('recent-posts');
+    var child = '<div class="recent-post-item" style="width:100%;height: auto"><div id="catalog_magnet"><div class="magnet_item"><a class="magnet_link" href="http://1921430580.github.io/categories/电脑/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">📚 某人の电脑相关 (1)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="http://1921430580.github.io/categories/优化日志/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🐱‍👓 某人の优化日志 (1)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="http://1921430580.github.io/categories/踩过的坑/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">👩‍💻 某人の踩坑历程 (2)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="http://1921430580.github.io/categories/学习笔记/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">📒 某人の学习笔记 (1)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="http://1921430580.github.io/categories/随笔/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">💡 某人の胡思乱想 (2)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item" style="visibility: hidden"></div><a class="magnet_link_more"  href="http://1921430580.github.io/categories" style="flex:1;text-align: center;margin-bottom: 10px;">查看更多...</a></div></div>';
+    console.log('已挂载magnet')
+    parent.insertAdjacentHTML("afterbegin",child)}
+     </script><style>#catalog_magnet{flex-wrap: wrap;display: flex;width:100%;justify-content:space-between;padding: 10px 10px 0 10px;align-content: flex-start;}.magnet_item{flex-basis: calc(50% - 5px);background: #f2f2f2;margin-bottom: 10px;border-radius: 8px;transition: all 0.2s ease-in-out;}.magnet_item:hover{background: #b30070}.magnet_link_more{color:#555}.magnet_link{color:black}.magnet_link:hover{color:white}@media screen and (max-width: 600px) {.magnet_item {flex-basis: 100%;}}.magnet_link_context{display:flex;padding: 10px;font-size:16px;transition: all 0.2s ease-in-out;}.magnet_link_context:hover{padding: 10px 20px;}</style>
+    <style></style><script data-pjax>function history_calendar_injector_config(){
+                var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+                var item_html = '<div class="card-widget card-history"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span>那年今日</span></div><div id="history-baidu" style="height: 100px;overflow: hidden"><div class="history_swiper-container" id="history-container" style="width: 100%;height: 100%"><div class="swiper-wrapper" id="history_container_wrapper" style="height:20px"></div></div></div></div>';
+                console.log('已挂载history_calendar')
+                // parent_div_git.innerHTML=item_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",item_html) // 有报错，但不影响使用(支持pjax跳转)
+            }if( document.getElementsByClassName('sticky_layout')[0] && (location.pathname ==='all'|| 'all' ==='all')){
+
+            history_calendar_injector_config()
+        } </script><script data-pjax  src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script><script data-pjax src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/js/main.js"></script><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '1s');
+    arr[i].setAttribute('data-wow-delay', '500ms');
+    arr[i].setAttribute('data-wow-offset', '70');
+    arr[i].setAttribute('data-wow-iteration', '1');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-widget');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script></div><script defer src="https://unpkg.zhimg.com/hexo-butterfly-wowjs/lib/wow.min.js"></script><script defer src="https://unpkg.zhimg.com/hexo-butterfly-wowjs/lib/wow_init.js"></script><!-- hexo injector body_end end --></body></html>

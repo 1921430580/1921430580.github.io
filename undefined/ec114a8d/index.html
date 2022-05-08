@@ -1,0 +1,451 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>c++学习笔记之语句 | my blog</title><meta name="keywords" content="学习笔记"><meta name="author" content="张栋梁"><meta name="copyright" content="张栋梁"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一个笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="c++学习笔记之语句">
+<meta property="og:url" content="http://1921430580.github.io/undefined/ec114a8d/index.html">
+<meta property="og:site_name" content="my blog">
+<meta property="og:description" content="一个笔记">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊9.gmvh4e6tfq8.webp">
+<meta property="article:published_time" content="2022-04-29T00:38:02.000Z">
+<meta property="article:modified_time" content="2022-05-08T02:31:41.200Z">
+<meta property="article:author" content="张栋梁">
+<meta property="article:tag" content="学习笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊9.gmvh4e6tfq8.webp"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://1921430580.github.io/undefined/ec114a8d/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: 张栋梁","link":"链接: ","source":"来源: my blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'c++学习笔记之语句',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2022-05-08 10:31:41'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css"  media="defer" onload="this.media='all'"><link rel="stylesheet" href="/css/custom.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><link rel="stylesheet" href="https://unpkg.zhimg.com/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"><link rel="alternate" href="/atom.xml" title="my blog" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">16</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw icon-tiger"></i><span> 拓展</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/comments/"><i class="fa-fw fa fa-comments"></i><span> 留言</span></a></li><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊9.gmvh4e6tfq8.webp')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">my blog</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw icon-tiger"></i><span> 拓展</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/comments/"><i class="fa-fw fa fa-comments"></i><span> 留言</span></a></li><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">c++学习笔记之语句</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-04-29T00:38:02.000Z" title="发表于 2022-04-29 08:38:02">2022-04-29</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-05-08T02:31:41.200Z" title="更新于 2022-05-08 10:31:41">2022-05-08</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/c-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">c++学习笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>9分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="c++学习笔记之语句"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p><strong>问题</strong></p>
+<ol>
+<li>使用范围 for 语句注意什么？</li>
+<li>try 语句块的使用方式</li>
+<li>C++ 定义了哪些异常类型</li>
+</ol>
+<p><strong>回答</strong></p>
+<ol>
+<li>如果要写元素的话必须要使用引用方式 auto&amp;，但是<strong>建议不论何时都使用引用，且当不需要写时使用常量引用。</strong></li>
+<li>throw 放在 try 块内，catch 用来捕获异常，可以使用省略号来捕获所有的异常类型。如果抛出了异常而未使用 catch 捕获，系统会调用 terminate 终止程序的运行。</li>
+<li>如 exceptIon, bad_alloc, bad_cast，runtime_error, logic_error 等。定义在头文件 exception, new, type_info, stdexcept 等头文件中。</li>
+</ol>
+<p><strong>第5章 语句</strong></p>
+<p><strong>5.1 简单语句</strong></p>
+<p><strong>表达式语句</strong></p>
+<p>一个表达式加上分号就是<strong>表达式语句</strong>。表达式的语句执行表达式并丢弃掉求值结果</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ival + <span class="number">3</span>;<span class="comment">//一条没有实际用处的表达式语句</span></span><br><span class="line">cout &lt;&lt; ival;<span class="comment">//一条有用的表达式语句</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>空语句</strong></p>
+<p>空语句是最简单的语句，只有一个分号</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">;<span class="comment">//空语句</span></span><br></pre></td></tr></table></figure>
+
+<p>用处：用在语法上需要一条语句但逻辑上不需要的地方。比如当循环的全部工作在条件部分就可以完成时。</p>
+<p>使用空语句应该加上注释。</p>
+<p><strong>复合语句（块）</strong></p>
+<p>花括号括起来的语句和声明序列都是<strong>复合语句（块）</strong>。一个块就是一个作用域</p>
+<p>空块的作用等价于空语句。</p>
+<p><strong>5.2 语句作用域</strong></p>
+<p>可以在 if、switch、while、for 语句的控制结构内定义变量。</p>
+<p>常见的语句有条件语句、循环语句、跳转语句三种。</p>
+<p><strong>5.3 条件语句</strong></p>
+<p>两种：if 语句和 switch 语句</p>
+<p><strong>5.3.1 if语句</strong></p>
+<p>if 语句有两种形式，一种有 else 分支，另一种没有。</p>
+<p>c++ 规定 else 与离他最近的尚未匹配的 if 匹配。注意不要搞错。</p>
+<p>使用 if 语句最好在所有的 if 和 else 之后都用花括号。</p>
+<p><strong>5.3.2 switch语句</strong></p>
+<p>switch 语句计算一个<strong>整型表达式</strong>的值，然后根据这个值从几条执行路径中选择一条。</p>
+<p>case 关键字和它对应的值一起被称为 case 标签，case 标签必须为<strong>整型常量表达式</strong>。</p>
+<p><strong>default</strong> 也是一种特殊的 case 标签。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span>(ch)&#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;a&#x27;</span>: ++aCnt; <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;b&#x27;</span>: ++bCnt; <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意：如果 switch 条件值于某个 case 标签匹配成功后，程序将从该 case 标签一直执行到 switch 末尾或遇到 break。</p>
+<p>一条 case 后可以跟多条语句，不必用花括号括起来。</p>
+<p>一般在每个 case标签后都有一条 break 语句。如果需要两个或多个值共享同一组操作，可以故意省略掉 break 语句。</p>
+<p>c++ 程序的形式比较自由，case 标签之后不一定要换行。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span>(ch)&#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;a&#x27;</span>: <span class="keyword">case</span> <span class="string">&#x27;b&#x27;</span>:</span><br><span class="line">        ++Cnt;</span><br><span class="line">        <span class="keyword">break</span>;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>一般不要省略 case 分支最后的 break 语句。如果没有 break 语句，最好注释一下。</p>
+<p>如果没有任何一个 case 标签匹配 switch 表达式的值，就执行 default 分支。</p>
+<p>即使不准备在 default 下做任何工作，最好也定义一个 default 标签。</p>
+<p>如果要在 case 分支定义并初始化变量，应该定义在块内以约束其作用域。</p>
+<p><strong>5.4 迭代语句</strong></p>
+<p>三种：while 语句、for 语句（包括范围 for 语句）、do while 语句</p>
+<p><strong>5.4.1 while语句</strong></p>
+<p>while 的条件不能为空。条件部分可以是一个表达式或<strong>带初始化的变量声明</strong>。</p>
+<p>定义在 while 条件部分或循环体内的变量每次迭代都会重新创建和销毁。</p>
+<p>while 适合不知道循环多少次的情况。</p>
+<p><strong>5.4.2 传统的for语句</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(init-statement; condition; expression)</span><br><span class="line">    statement;</span><br></pre></td></tr></table></figure>
+
+<p>init-statement 可以是声明语句、表达式语句或空语句。init-statement 可以定义多个对象，但是只能有一条声明语句。</p>
+<p>expression 在每次循环之后执行。</p>
+<p>for 语句头能省略掉三者中的任意一个或全部。</p>
+<p>省略 condition 等于条件恒为 true。</p>
+<p><strong>5.4.3 范围for语句</strong></p>
+<p>范围 for 语句用来遍历容器或其他序列的所有元素。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(declaration : expression)</span><br><span class="line">    statement</span><br></pre></td></tr></table></figure>
+
+<p>expression 表示的必须是一个序列，可以是花括号括起来的初始值列表。这些序列的共同的是都可以返回迭代器的 begin 和 end 成员。</p>
+<p>declaration 定义一个能从序列中元素转换过来的<strong>变量（不是迭代器）</strong>。最简单的方法是使用 auto 类型说明符。</p>
+<p>如果需要对容器中的元素执行写操作，必须<strong>将循环变量声明成引用类型</strong>。</p>
+<p><strong>循环变量可以声明为对常量的引用，不需要写时最好都声明为常量引用</strong></p>
+<p>每次迭代都会<strong>重新定义</strong>循环控制变量，并将其初始化为序列的下一个值。</p>
+<p>范围 for 语句不能改变序列的元素数量。因为其预存了 end() 的值，改变元素数量后 end() 的值就可能失效了。</p>
+<p><strong>5.4.4 dowhile语句</strong></p>
+<p>do while 语句与 while 语句的唯一区别就是它先执行循环体后检查条件。即至少执行一次循环。</p>
+<p>注意：do while 后<strong>不要忘了加分号。</strong></p>
+<p>因为 condition 在循环体后面，所以 condition 使用的变量应该定义在循环体外面。</p>
+<p><strong>5.5 跳转语句</strong></p>
+<p>四种：break、continue、goto、return</p>
+<p><strong>5.5.1 break语句</strong></p>
+<p>break 语句终止离它最近的 while、do while、for 或 switch 语句，并从这些语句之后的第一条语句开始执行。</p>
+<p>break 语句只能出现在迭代语句或 switch 内部。</p>
+<p><strong>5.5.2 continue语句</strong></p>
+<p>continue 语句终止最近的循环中的当前迭代并开始下一次迭代。</p>
+<p>continue 适用范围比 break 少了一个 switch</p>
+<p><strong>5.5.3 goto语句</strong></p>
+<p>goto 语句的作用是从 goto 语句无条件跳转到<strong>同一函数内</strong>的另一条语句。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">label: <span class="type">int</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">goto</span> label;</span><br></pre></td></tr></table></figure>
+
+<p>label 是用于标识一条语句的标示符</p>
+<p>标签标示符独立于变量或其他标示符的名字，标签标示符可以和程序中其他实体的标示符使用同一个名字而不会相互干扰。</p>
+<p>如果 goto 语句跳回了一条变量的定义之前意味着系统将会销毁该变量，然后重新创建它。</p>
+<p><strong>不要使用 goto</strong>，它会令程序又难理解又难修改。</p>
+<p><strong>5.6 try语句块和异常处理</strong></p>
+<p>异常是指存在于运行时的反常行为，典型的异常有失去数据库连接和遇到意外输入等。处理异常可能是设计系统时最难的一部分。</p>
+<p>当程序检测到一个无法处理的问题时，就需要<strong>异常处理</strong>，此时检测到问题的部分应该发出检测信号。</p>
+<p>如果程序里有可能引发异常的代码，也应该有专门的代码处理问题。</p>
+<p>C++ 的异常处理机制为<strong>异常检测</strong>和<strong>异常处理</strong>提供支持，它包括：</p>
+<ol>
+<li><strong>throw 表达式：</strong>异常检测部分使用 throw 表达式来表示遇到了无法处理的问题。称为 throw 引发了异常。</li>
+<li><strong>try 语句块：</strong>异常处理部分使用 try 语句块处理异常。try 语句块以关键字 try 开始，以一个或多个 catch 子句结束。</li>
+<li><strong>一套异常类：</strong>用于在 throw 表达式和相关的 catch 子句间传递异常的具体信息。</li>
+</ol>
+<p><strong>5.6.1 throw 表达式</strong></p>
+<p>throw 表达式包含关键字 throw 和紧随其后的一个表达式，表达式的类型就是抛出的异常类型。</p>
+<p>即 throw 后面跟一个异常类型的对象（必须同时使用 string 或 C 风格字符串对其初始化）。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">throw</span> <span class="built_in">runtime_error</span>(<span class="string">&quot;Data must be same as size&quot;</span>);<span class="comment">//使用 throw 表达式抛出一个运行时错误。</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>5.6.2 try语句块</strong></p>
+<p>跟在 try 块后面的是一个或多个 catch 子句。catch 子句包括三部分：关键字 catch、括号内一个异常类型的对象的声明（叫做异常声明）、一个块。</p>
+<p>当 try 语句块中抛出了一个异常，如果该异常类型与 catch 子句括号中的异常类型相同，就会执行该 catch 子句。</p>
+<p>catch 一旦完成，程序就跳转到 try 语句块最后一个 catch 子句之后的那条语句继续执行。</p>
+<p>在 catch 后面的括号里使用省略号(…)可以让 catch 捕获所有类型的异常。</p>
+<p>每个标准库异常类都有一个 <strong>what 成员函数</strong>，它没有参数，返回初始化该对象时所用的 C 风格字符串。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">   <span class="keyword">throw</span> <span class="built_in">runtime_error</span>(<span class="string">&quot;Data must be same as size&quot;</span>);<span class="comment">//try 语句块抛出了一个异常</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">catch</span>(runtime_error err)<span class="comment">//在 catch 后面的括号中声明了一个“runtime_error”类型的对象，与 try 抛出的异常类型相同，接下来执行此子句。</span></span><br><span class="line">&#123;</span><br><span class="line">    cout &lt;&lt; err.<span class="built_in">what</span>();<span class="comment">//输出 &quot;Data must be same as size&quot;</span></span><br><span class="line">&#125;<span class="comment">//</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>函数在寻找处理代码的过程中退出</strong></p>
+<p>throw 语句可能出现在嵌套的 try 语句块中或在 try 语句块中调用的某个函数内。当异常被抛出，程序会<strong>从内到外一层层寻找相应类型的 catch 子句。</strong>如果最后还是没找到，系统会<strong>调用 terminate 函数并终止当前程序的执行。</strong></p>
+<p>如果 throw 语句外就没有 try 语句块，也会执行 terminate 函数。</p>
+<p>理解：异常中断了程序的正常流程。当发生异常，程序执行到一半就中断了，可能会存在如资源没有正常释放，对象没有处理完成等情况。异常安全的代码要求在异常发生时能正确执行清理工作。这个非常困难。</p>
+<p><strong>5.6.3 标准异常</strong></p>
+<p>C++ 标准库定义了一组异常类，用于报告标准库函数遇到的问题。他们定义在 4 个头文件中。</p>
+<p>定义在 <strong>stdexcept</strong> 头文件中的类型必须使用 string 对象或 C 风格字符串来初始化他们。其他 3 个头文件中的 3 中类型则只能默认初始化，不能提供初始值。</p>
+<p>异常类型只有一个 what 成员函数，该函数没有参数，返回是一个 C 风格字符串的指针，目的是提供关于异常的文本信息。</p>
+<p>对于无初始值的异常类型，what 返回的内容由编译器决定，有初始值的返回初始值。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;exception头文件&#x27;</span></span><br><span class="line">exception           <span class="comment">// 异常类 exception 是最通用的异常类。它只报告异常的发生，不提供额外信息。</span></span><br><span class="line"><span class="string">&#x27;new头文件&#x27;</span></span><br><span class="line">bad_alloc           <span class="comment">// 异常类 bad_alloc。在使用 new 分配动态内存失败时抛出</span></span><br><span class="line"><span class="string">&#x27;type_info头文件&#x27;</span></span><br><span class="line">bad_cast            <span class="comment">// 异常类型 bad_cast。经常发生在使用 dynamic_cast 时发生。</span></span><br><span class="line"><span class="string">&#x27;stdexcept头文件&#x27;</span></span><br><span class="line">exception</span><br><span class="line">runtime_error       <span class="comment">// 只有在运行时才能检测出的问题</span></span><br><span class="line">range_error         <span class="comment">// 运行时错误：生成的结果超出了有意义的值域范围</span></span><br><span class="line">overflow_error      <span class="comment">// 运行时错误：计算上溢</span></span><br><span class="line">underflow_error     <span class="comment">// 运行时错误：计算下溢</span></span><br><span class="line">logic_error         <span class="comment">// 程序逻辑错误</span></span><br><span class="line">domain_error        <span class="comment">// 逻辑错误：参数对象的结果值不存在</span></span><br><span class="line">invalid_argument    <span class="comment">// 逻辑错误：无效参数</span></span><br><span class="line">length_error        <span class="comment">// 逻辑错误：试图创建一个超出该类型最大长度的对象</span></span><br><span class="line">out_of_range        <span class="comment">// 逻辑错误：使用一个超出有效范围的值</span></span><br></pre></td></tr></table></figure>
+
+<p>上面的异常类之间存在继承关系，其中 exception 是所有其他类的基类，总的继承关系如下图</p>
+<p>​    <img src="https://note.youdao.com/yws/public/resource/80ef131f62e5733164aa3fd1f11c9b29/xmlnote/8A824B95651E4A219BAB42B0D3803B49/33842" alt="0"></p>
+<p>例子</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">StrBlob::check</span><span class="params">(size_type i, <span class="type">const</span> string&amp; msg)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (i &gt;= data-&gt;<span class="built_in">size</span>())</span><br><span class="line">        <span class="keyword">throw</span> <span class="built_in">out_of_range</span>(msg);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">张栋梁</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://1921430580.github.io/undefined/ec114a8d/">http://1921430580.github.io/undefined/ec114a8d/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://1921430580.github.io" target="_blank">my blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊9.gmvh4e6tfq8.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/undefined/ca1d4fd/"><img class="prev-cover" src="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊3.4wusp7b98ja0.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">c++学习笔记之表达式</div></div></a></div><div class="next-post pull-right"><a href="/undefined/2e91ca60/"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊7.16nuvow0fdmk.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">c++学习笔记之函数</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">张栋梁</div><div class="author-info__description">学习使我快乐</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">16</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Akilarlxh" target="_blank" title="icon-rat"><i class="Github"></i></a><a class="social-icon" href="mailto:Akilarlxh@gmail.com" target="_blank" title="fas fa-envelope"><i class="Email"></i></a><a class="social-icon" href="https://space.bilibili.com/22976782" target="_blank" title="icon-ox"><i class="Bilibili"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recommend-post"><div class="item-headline"><i class="fas fa-dharmachakra"></i><span>相关推荐</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/undefined/403834c2/" title="Python基础学习笔记之变量与运算"><img src="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊4.47w46o5asxw0.webp" alt="Python基础学习笔记之变量与运算"></a><div class="content"><a class="title" href="/undefined/403834c2/" title="Python基础学习笔记之变量与运算">Python基础学习笔记之变量与运算</a><time datetime="2022-04-18" title="发表于 2022-04-18">2022-04-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/undefined/ca1d4fd/" title="c++学习笔记之表达式"><img src="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊3.4wusp7b98ja0.webp" alt="c++学习笔记之表达式"></a><div class="content"><a class="title" href="/undefined/ca1d4fd/" title="c++学习笔记之表达式">c++学习笔记之表达式</a><time datetime="2022-04-26" title="发表于 2022-04-26">2022-04-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/undefined/4066/" title="c++学习笔记之预备知识"><img src="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊6.16806l3le8dc.webp" alt="c++学习笔记之预备知识"></a><div class="content"><a class="title" href="/undefined/4066/" title="c++学习笔记之预备知识">c++学习笔记之预备知识</a><time datetime="2022-04-15" title="发表于 2022-04-15">2022-04-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/undefined/84ec9e03/" title="c++笔记之初识c++"><img src="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊7.16nuvow0fdmk.webp" alt="c++笔记之初识c++"></a><div class="content"><a class="title" href="/undefined/84ec9e03/" title="c++笔记之初识c++">c++笔记之初识c++</a><time datetime="2022-04-18" title="发表于 2022-04-18">2022-04-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/undefined/2e91ca60/" title="c++学习笔记之函数"><img src="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊7.16nuvow0fdmk.webp" alt="c++学习笔记之函数"></a><div class="content"><a class="title" href="/undefined/2e91ca60/" title="c++学习笔记之函数">c++学习笔记之函数</a><time datetime="2022-05-08" title="发表于 2022-05-08">2022-05-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/undefined/54e122cb/" title="c++笔记之变量和基本类型"><img src="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊3.4wusp7b98ja0.webp" alt="c++笔记之变量和基本类型"></a><div class="content"><a class="title" href="/undefined/54e122cb/" title="c++笔记之变量和基本类型">c++笔记之变量和基本类型</a><time datetime="2022-04-21" title="发表于 2022-04-21">2022-04-21</time></div></div></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/undefined/2e91ca60/" title="c++学习笔记之函数"><img src="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊7.16nuvow0fdmk.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="c++学习笔记之函数"/></a><div class="content"><a class="title" href="/undefined/2e91ca60/" title="c++学习笔记之函数">c++学习笔记之函数</a><time datetime="2022-05-08T02:18:18.000Z" title="发表于 2022-05-08 10:18:18">2022-05-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/undefined/ec114a8d/" title="c++学习笔记之语句"><img src="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊9.gmvh4e6tfq8.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="c++学习笔记之语句"/></a><div class="content"><a class="title" href="/undefined/ec114a8d/" title="c++学习笔记之语句">c++学习笔记之语句</a><time datetime="2022-04-29T00:38:02.000Z" title="发表于 2022-04-29 08:38:02">2022-04-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/undefined/ca1d4fd/" title="c++学习笔记之表达式"><img src="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊3.4wusp7b98ja0.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="c++学习笔记之表达式"/></a><div class="content"><a class="title" href="/undefined/ca1d4fd/" title="c++学习笔记之表达式">c++学习笔记之表达式</a><time datetime="2022-04-26T08:23:36.000Z" title="发表于 2022-04-26 16:23:36">2022-04-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/undefined/7f71bab2/" title="c++笔记之字符串、向量、和数组"><img src="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊1.69vym0dr01w0.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="c++笔记之字符串、向量、和数组"/></a><div class="content"><a class="title" href="/undefined/7f71bab2/" title="c++笔记之字符串、向量、和数组">c++笔记之字符串、向量、和数组</a><time datetime="2022-04-23T03:39:19.000Z" title="发表于 2022-04-23 11:39:19">2022-04-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/undefined/54e122cb/" title="c++笔记之变量和基本类型"><img src="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊3.4wusp7b98ja0.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="c++笔记之变量和基本类型"/></a><div class="content"><a class="title" href="/undefined/54e122cb/" title="c++笔记之变量和基本类型">c++笔记之变量和基本类型</a><time datetime="2022-04-21T08:43:07.000Z" title="发表于 2022-04-21 16:43:07">2022-04-21</time></div></div></div></div></div></div></main><footer id="footer" style="background: rgba(0, 0, 0, 0)"><div id="footer-wrap"><div class="copyright">&copy;2022 By 张栋梁</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"><script>(() => {
+  const $mermaidWrap = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaidWrap.length) {
+    window.runMermaid = () => {
+      window.loadMermaid = true
+      const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+      Array.from($mermaidWrap).forEach((item, index) => {
+        const mermaidSrc = item.firstElementChild
+        const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+        const mermaidID = 'mermaid-' + index
+        const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+        mermaid.mermaidAPI.render(mermaidID, mermaidDefinition, (svgCode) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svgCode)
+        })
+      })
+    }
+
+    const loadMermaid = () => {
+      window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaid)
+    }
+
+    window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+  }
+})()</script><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: '',
+      appKey: '',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script async data-pjax src="/js/randombg.js"></script><script defer src="/live2d-widget/autoload.js"></script><script async src="//at.alicdn.com/t/font_3334759_mnvqntvw5u.js<script defer data-pjax src="/live2d-widget/autoload.js"></script><script async data-pjax src="//at.alicdn.com/t/font_3334759_mnvqntvw5u.js<script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" data-mobile="false" data-text="富强,文明,民主,和谐,公平,正义,爱国,平等,自由" data-fontsize="15px" data-random="false" async="async"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --> <script data-pjax>if(document.getElementById('recent-posts') && (location.pathname ==='/'|| '/' ==='all')){
+    var parent = document.getElementById('recent-posts');
+    var child = '<div class="recent-post-item" style="width:100%;height: auto"><div id="catalog_magnet"><div class="magnet_item"><a class="magnet_link" href="http://1921430580.github.io/categories/电脑/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">📚 某人の电脑相关 (1)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="http://1921430580.github.io/categories/优化日志/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🐱‍👓 某人の优化日志 (1)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="http://1921430580.github.io/categories/踩过的坑/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">👩‍💻 某人の踩坑历程 (2)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="http://1921430580.github.io/categories/学习笔记/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">📒 某人の学习笔记 (1)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="http://1921430580.github.io/categories/随笔/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">💡 某人の胡思乱想 (2)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item" style="visibility: hidden"></div><a class="magnet_link_more"  href="http://1921430580.github.io/categories" style="flex:1;text-align: center;margin-bottom: 10px;">查看更多...</a></div></div>';
+    console.log('已挂载magnet')
+    parent.insertAdjacentHTML("afterbegin",child)}
+     </script><style>#catalog_magnet{flex-wrap: wrap;display: flex;width:100%;justify-content:space-between;padding: 10px 10px 0 10px;align-content: flex-start;}.magnet_item{flex-basis: calc(50% - 5px);background: #f2f2f2;margin-bottom: 10px;border-radius: 8px;transition: all 0.2s ease-in-out;}.magnet_item:hover{background: #b30070}.magnet_link_more{color:#555}.magnet_link{color:black}.magnet_link:hover{color:white}@media screen and (max-width: 600px) {.magnet_item {flex-basis: 100%;}}.magnet_link_context{display:flex;padding: 10px;font-size:16px;transition: all 0.2s ease-in-out;}.magnet_link_context:hover{padding: 10px 20px;}</style>
+    <style></style><script data-pjax>function history_calendar_injector_config(){
+                var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+                var item_html = '<div class="card-widget card-history"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span>那年今日</span></div><div id="history-baidu" style="height: 100px;overflow: hidden"><div class="history_swiper-container" id="history-container" style="width: 100%;height: 100%"><div class="swiper-wrapper" id="history_container_wrapper" style="height:20px"></div></div></div></div>';
+                console.log('已挂载history_calendar')
+                // parent_div_git.innerHTML=item_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",item_html) // 有报错，但不影响使用(支持pjax跳转)
+            }if( document.getElementsByClassName('sticky_layout')[0] && (location.pathname ==='all'|| 'all' ==='all')){
+
+            history_calendar_injector_config()
+        } </script><script data-pjax  src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script><script data-pjax src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/js/main.js"></script><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '1s');
+    arr[i].setAttribute('data-wow-delay', '500ms');
+    arr[i].setAttribute('data-wow-offset', '70');
+    arr[i].setAttribute('data-wow-iteration', '1');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-widget');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script></div><script defer src="https://unpkg.zhimg.com/hexo-butterfly-wowjs/lib/wow.min.js"></script><script defer src="https://unpkg.zhimg.com/hexo-butterfly-wowjs/lib/wow_init.js"></script><!-- hexo injector body_end end --></body></html>

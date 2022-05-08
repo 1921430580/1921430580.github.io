@@ -1,0 +1,754 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>c++笔记之字符串、向量、和数组 | my blog</title><meta name="keywords" content="学习笔记"><meta name="author" content="张栋梁"><meta name="copyright" content="张栋梁"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一个笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="c++笔记之字符串、向量、和数组">
+<meta property="og:url" content="http://1921430580.github.io/undefined/7f71bab2/index.html">
+<meta property="og:site_name" content="my blog">
+<meta property="og:description" content="一个笔记">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊1.69vym0dr01w0.webp">
+<meta property="article:published_time" content="2022-04-23T03:39:19.000Z">
+<meta property="article:modified_time" content="2022-05-08T02:30:45.215Z">
+<meta property="article:author" content="张栋梁">
+<meta property="article:tag" content="学习笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊1.69vym0dr01w0.webp"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://1921430580.github.io/undefined/7f71bab2/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: 张栋梁","link":"链接: ","source":"来源: my blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'c++笔记之字符串、向量、和数组',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2022-05-08 10:30:45'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css"  media="defer" onload="this.media='all'"><link rel="stylesheet" href="/css/custom.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/css/main.css"><link rel="stylesheet" href="https://unpkg.zhimg.com/hexo-butterfly-wowjs/lib/animate.min.css" media="print" onload="this.media='all'"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"><link rel="alternate" href="/atom.xml" title="my blog" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">16</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw icon-tiger"></i><span> 拓展</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/comments/"><i class="fa-fw fa fa-comments"></i><span> 留言</span></a></li><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊1.69vym0dr01w0.webp')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">my blog</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw icon-tiger"></i><span> 拓展</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/comments/"><i class="fa-fw fa fa-comments"></i><span> 留言</span></a></li><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">c++笔记之字符串、向量、和数组</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-04-23T03:39:19.000Z" title="发表于 2022-04-23 11:39:19">2022-04-23</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-05-08T02:30:45.215Z" title="更新于 2022-05-08 10:30:45">2022-05-08</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/c-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">c++学习笔记</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">5.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>20分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="c++笔记之字符串、向量、和数组"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p><strong>问题</strong></p>
+<ol>
+<li>使用加号连接字符串&#x2F;string时要注意什么</li>
+<li>string 的索引是什么类型，s.size() 返回什么类型。</li>
+<li>如何方便地判断 string 中的某个字符的类型（比如是数字还是字母）以及转换某个字符的大小写。</li>
+<li>值初始化的结果是怎样的</li>
+<li>定义 c 风格数组时数组维度的限制条件</li>
+<li>如何使用数组来初始化 vec</li>
+<li>string 类型可以隐式转化为 c 风格字符串（即字符数组）吗？</li>
+<li>如何将 string 类型转化为 c 风格字符串</li>
+<li>使用 getline() 函数从输入流读取字符串存到 string 中，存储的内容有换行符吗？</li>
+<li>使用范围for循环要注意什么？</li>
+</ol>
+<p><strong>回答</strong></p>
+<ol>
+<li>加号两边至少有一个是 string 类型，不能都是字符串</li>
+<li>都是 string::size_type 类型，是无符号值。</li>
+<li>使用 <strong>cctype</strong> 头文件中的 isalnum(),  isalpha(), isdigit(), isupper(), islowwer(), ispunct(), isspace(), tolower(), toupper() 等类型。</li>
+<li>值初始化会将内置类型初始化为 0，类类型由类自己来默认初始化。</li>
+<li><strong>维度必须是个常量表达式，即在编译阶段就可以确定值</strong>。（因为数组维度是数组的类型的一部分，而 <strong>C++ 是静态语言，即在编译阶段就要确定类型</strong>）</li>
+<li>vector vec(begin(arr),end(arr));</li>
+<li>不可以（从 C 风格字符串到 string 的转换是用了 string 的转换构造函数，而 string 并没有定义到 C 风格字符串的类型转换运算符）</li>
+<li>使用 c_str() 函数</li>
+<li>没有换行符。</li>
+<li>如果要修改循环变量的值要将其声明为引用类型：auto &amp;</li>
+</ol>
+<p><strong>问题</strong></p>
+<ol>
+<li>如果容器为空，begin() 的返回值是什么？</li>
+<li>使用数组时要注意数组维度的什么特点？</li>
+<li>区分 int *ptrs[10]; int (*ptrs)[10]; int (&amp;ptrs)[10] 的不同含义</li>
+<li>C风格字符串属于什么类型？</li>
+</ol>
+<p><strong>回答</strong></p>
+<ol>
+<li>返回的是尾后迭代器，和 end() 的返回值一样。</li>
+<li>使用数组时注意数组的维度必须是个常量表达式，因为数组的维度也属于数组类型的一部分，而编译器在编译阶段就需要知道数组类型。</li>
+<li>他们分别定义了：一个包含10个整型指针的数组，一个指向包含10个整型值的数组的指针，一个包含10个整型值的数组的引用。</li>
+<li>C风格字符串本身不是类型，而是一种写法，它的类型是字符数组。<strong>要从字符数组的角度来理解C风格字符串的各项操作。</strong></li>
+</ol>
+<p><strong>第3章 字符串、向量和数组</strong></p>
+<p>string、vector是两种最重要的标准库类型，迭代器是一种与 string 和 vector 配套的标准库类型。</p>
+<p>内置数组和其他内置类型一样，数组的实现和硬件密切相关，因此与string和vector相比，数组在灵活性上稍显不足。</p>
+<p><strong>3.1 命名空间的using声明</strong></p>
+<p>可以对单个名字进行独立的using声明</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">std::cout &lt;&lt; <span class="string">&quot;Enter two numbers:&quot;</span> &lt;&lt; std::endl;</span><br><span class="line"> <span class="comment">//::是域操作符</span></span><br><span class="line"><span class="type">int</span> v1, v2;</span><br><span class="line">std::cin &gt;&gt; v1 &gt;&gt; v2;</span><br><span class="line"></span><br><span class="line">std::cout &lt;&lt; <span class="string">&quot;The sum of &quot;</span> &lt;&lt; v1 &lt;&lt; <span class="string">&quot; and &quot;</span> &lt;&lt; v2</span><br><span class="line">     &lt;&lt; <span class="string">&quot; is &quot;</span> &lt;&lt; v1 + v2 &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>●using namespace::name;</p>
+<p>●using namespace nameSpaceName;</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// using declarations for names from the standard library</span></span><br><span class="line"><span class="keyword">using</span> std::cin;</span><br><span class="line"><span class="keyword">using</span> std::cout; <span class="keyword">using</span> std::endl;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">cout &lt;&lt; <span class="string">&quot;Enter two numbers:&quot;</span> &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> v1, v2;</span><br><span class="line">cin &gt;&gt; v1 &gt;&gt; v2;</span><br><span class="line"></span><br><span class="line">cout &lt;&lt; <span class="string">&quot;The sum of &quot;</span> &lt;&lt; v1 &lt;&lt; <span class="string">&quot; and &quot;</span> &lt;&lt; v2</span><br><span class="line">     &lt;&lt; <span class="string">&quot; is &quot;</span> &lt;&lt; v1 + v2 &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>头文件里不应包含 using 声明</strong>，因为会被拷贝到引用该头文件的文件中</p>
+<p><strong>3.2 标准库类型string</strong></p>
+<p>string 表示可变长的字符序列，需要包含string头文件</p>
+<p>string 定义在命名空间 using 中。  </p>
+<p><strong>3.2.1 定义和初始化string对象</strong></p>
+<p>string 默认初始化为一个空的 string。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">string s1;       <span class="comment">//将 s1 默认初始化为一个空的 string</span></span><br><span class="line"><span class="function">string <span class="title">s1</span><span class="params">(s2)</span></span>;   <span class="comment">//使用拷贝构造函数进行的拷贝初始化。s1 是 s2 的拷贝。</span></span><br><span class="line">string s1 = s2;  <span class="comment">//使用拷贝赋值运算符进行的拷贝初始化。s1 是 s2 的拷贝。</span></span><br><span class="line"><span class="function">string <span class="title">s1</span><span class="params">(<span class="string">&quot;value&quot;</span>)</span></span>;  <span class="comment">//s1 是字面值 &quot;value&quot; 去除最后一个空字符后的拷贝。</span></span><br><span class="line">string s1 = <span class="string">&quot;value&quot;</span>; <span class="comment">//同上。</span></span><br><span class="line"><span class="function">string <span class="title">s1</span><span class="params">(n,<span class="string">&#x27;c&#x27;</span>)</span></span>; <span class="comment">//s1 初始化为 n 个 &#x27;c&#x27;。</span></span><br></pre></td></tr></table></figure>
+
+<p>注意：使用字符串字面值或字符数组初始化 string 对象时，string 对象中是不包含末尾的空字符的，它会将字符数组中末尾的空字符去掉。</p>
+<p><strong>初始化方式</strong></p>
+<p>拷贝初始化：使用等号</p>
+<p>直接初始化：不使用等号</p>
+<p>列表初始化：使用花括号{}</p>
+<p><strong>3.2.2 string对象上的操作</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>os&lt;&lt;s</td>
+<td>将s写到输出流os当中，返回os</td>
+</tr>
+<tr>
+<td>is&gt;&gt;s</td>
+<td>从is中读取字符串赋给s，字符串以空白分隔，返回is</td>
+</tr>
+<tr>
+<td>getline( is,s )</td>
+<td>从is中读取一行赋给s，返回is</td>
+</tr>
+<tr>
+<td>s.empty()</td>
+<td>s为空返回true，否则返回false</td>
+</tr>
+<tr>
+<td>s.size()</td>
+<td>返回s中字符的个数，返回值为string::size_type类型</td>
+</tr>
+<tr>
+<td>s[n]</td>
+<td>返回s中第n个字符的引用，位置n从0记起</td>
+</tr>
+<tr>
+<td>s1+s2</td>
+<td>返回s1和s2连接后的结果</td>
+</tr>
+<tr>
+<td>s1&#x3D;s2</td>
+<td>用s2的副本替代s1中原来的字符</td>
+</tr>
+<tr>
+<td>s1&#x3D;&#x3D;s2</td>
+<td>判断s1和s2是否完全一样</td>
+</tr>
+<tr>
+<td>s1!&#x3D;s2</td>
+<td>判断s1和s2是否不完全一样</td>
+</tr>
+<tr>
+<td>&lt;,&lt;&#x3D;,&gt;,&gt;&#x3D;</td>
+<td>利用字符在字典中的顺序进行比较</td>
+</tr>
+</tbody></table>
+<p>因为 cin 会<strong>自动忽略开头的空白并遇到空白就停止读取</strong>，因此不能使用 cin 读取句子；</p>
+<p>字符串字面值与 string 是两种不同的类型</p>
+<p><strong>读写string对象</strong></p>
+<p>可以使用 cin, cout 来读写 string 对象，也可以使用 stringstream 来读写 string 对象。</p>
+<p><strong>getline 函数</strong></p>
+<p>getline() 定义在<strong>头文件 string</strong> 中，以一个 istream 对象和一个 string 对象为输入参数。getline() 读取输入流的内容直到遇到换行符停止，然后将读入的数据存入 string 对象。</p>
+<p>注意 getline 会将换行符也读入，但是不将换行符存入 string 对象。<strong>即触发 getline() 函数返回的那个换行符实际上被丢弃掉了。</strong></p>
+<p>getline() 只要一遇到换行符就结束读取操作并返回结果，即使一开始就是换行符也一样，这种情况下会得到一个空 string。</p>
+<p><strong>getline() 与 &lt;&lt; 一样，会返回它的流参数。</strong>所以可以用 getline 的结果作为条件。</p>
+<p><strong>string::size_type 类型</strong></p>
+<p>string 的 size() 成员函数返回一个 string::size_type 类型的值。</p>
+<p>大多数标准库类型都定义了几种配套的类型，这些<strong>配套类型体现了标准库与机器无关的特性</strong>。</p>
+<p>在具体使用时，通过作用域操作符来表明 size_type 是在类 string 中定义的。</p>
+<p>string::size_type 是<strong>无符号值</strong>，可以确定的是它足够存放任何 string 对象的大小。</p>
+<p>C++11 允许通过 auto 和 decltype 来获得此类型。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> len = s.<span class="built_in">size</span>();<span class="comment">// len 的类型是 string::size_type</span></span><br></pre></td></tr></table></figure>
+
+<p>不要在同一个表达式中混用 size_type 和 int 类型。</p>
+<p><strong>3.2.3 处理string对象中的字符</strong></p>
+<p><strong>cctype 头文件</strong>中有下列标准库函数来处理 string 中的字符。</p>
+<p>C++语言中，字符串字面值并不是stirng对象。</p>
+<p>下面这些函数的输入和返回值实际都是 int 类型的，且<strong>输入的值 c 必须满足 -1&lt;&#x3D;c&lt;&#x3D;255</strong>，<strong>即输入必须是 ASCII 字符。</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>cctype头文件（ctype.h）中的函数（不需要背，学一遍知道有就可以了）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>isalnum(c)</td>
+<td>如果c是字母或数字，该函数返回true</td>
+</tr>
+<tr>
+<td>isalpha(c)</td>
+<td>如果c是字母，该函数返回真</td>
+</tr>
+<tr>
+<td>iscntrl(c)</td>
+<td>如果c是控制字符，该函数返回true</td>
+</tr>
+<tr>
+<td>isdigit(c)</td>
+<td>如果c是数字（0～9），该函数返回true</td>
+</tr>
+<tr>
+<td>isgraph(c)</td>
+<td>如果c是除空格之外的打印字符，该函数返回true</td>
+</tr>
+<tr>
+<td>islower(c)</td>
+<td>如果c是小写字母，该函数返回true</td>
+</tr>
+<tr>
+<td>isprint(c)</td>
+<td>如果c是打印字符（包括空格），该函数返回true</td>
+</tr>
+<tr>
+<td>ispunct(c)</td>
+<td>如果c是标点符号，该函数返回true</td>
+</tr>
+<tr>
+<td>isspace(c)</td>
+<td>如果c是标准空白字符，如空格、进纸、换行符、回车、水平制表符或者垂直制表符，该函数返回true</td>
+</tr>
+<tr>
+<td>isupper(c)</td>
+<td>如果c是大写字母，该函数返回true</td>
+</tr>
+<tr>
+<td>isxdigit(c)</td>
+<td>如果c是十六进制的数字，即0～9、a<del>f、A</del>F，该函数返回true</td>
+</tr>
+<tr>
+<td>tolower(c)</td>
+<td>如果c是大写字符，则返回其小写，否则返回该参数</td>
+</tr>
+<tr>
+<td>toupper(c)</td>
+<td>如果c是小写字母，则返回其大写，否则返回该参数</td>
+</tr>
+</tbody></table>
+<p>建议：使用 c++ 版本的标准库头文件，即 cname 而非 name.h 类型的头文件。cname 头文件中的名字都从属于命名空间 std；</p>
+<p><strong>范围for语句</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">string str;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> c:str)         <span class="comment">// 对于str中的每个字符</span></span><br><span class="line">    cout &lt;&lt; c &lt;&lt; endl;  <span class="comment">// 输出当前字符，后面紧跟一个换行符</span></span><br></pre></td></tr></table></figure>
+
+<p>当要改变 string 对象中的值时，需要把循环变量定义成<strong>引用类型</strong>。必须通过显示添加 &amp; 符号来声明引用类型。</p>
+<p>不能在范围 for 语句中改变所遍历序列的大小。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> &amp;c:str)</span><br><span class="line">    c = <span class="built_in">toupper</span>(c);     <span class="comment">// 转换为大写</span></span><br></pre></td></tr></table></figure>
+
+<p>对 string 的最后一个字符进行索引：s[s.size()-1];</p>
+<p>索引必须大于等于 0 小于 size，使用索引前最好用 if(!s.empty()) 判断一下字符串是否为空。</p>
+<p>任何表达式只要是整型值就可以作为索引。索引是无符号类型 size_type；</p>
+<p><strong>3.3 标准库类型vector</strong></p>
+<p>vector：对象的集合<br>vector是模板，由vector生成的模板必须包含vector中元素的类型<br>例如vector<int>、vector&lt;vector<int> &gt;<br>引用不是对象，所以不存在包含引用的vector</p>
+<p><strong>3.3.1 定义和初始化vector对象</strong></p>
+<p>vector 默认初始化为一个空 vector。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>更多操作<strong>初始化<strong><strong>vector</strong></strong>对象的方法</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>vector<T> v1</td>
+<td>v1是一个空vector，它潜在的元素是T类型的，指向默认初始化</td>
+</tr>
+<tr>
+<td>vector<T> v2(v1)</td>
+<td>v2中包含有v1所有元素的副本</td>
+</tr>
+<tr>
+<td>vector<T> v2 &#x3D; v1</td>
+<td>等价于v2(v1)</td>
+</tr>
+<tr>
+<td>vector<T> v3(n,val)</td>
+<td>v3包含n个重复个元素，每个元素的值都是val</td>
+</tr>
+<tr>
+<td>vector<T> v4(n)</td>
+<td>v4包含了n个重复地执行了值初始化的对象</td>
+</tr>
+<tr>
+<td>vector<T> v5{a,b,c…}</td>
+<td>v5包含了初始值个数的元素，每个元素都被赋予相应的初始值</td>
+</tr>
+<tr>
+<td>vector<T> v5&#x3D;{a,b,c…}</td>
+<td>等价于vector<T> v5{a,b,c…}</td>
+</tr>
+</tbody></table>
+<p><strong>值初始化</strong></p>
+<p><strong>值初始化的方式：</strong>如果对象是内置类型，则初始值为 0，如果是类类型，则由类默认初始化。</p>
+<p><strong>列表初始化</strong></p>
+<p>使用花括号一般表示列表初始化：初始化过程会尽量把花括号内的值当作一个初始值列表来处理。</p>
+<p>如果花括号内的值不能用来列表初始化，比如对一个 string 的 vector 初始化，但是花括号内的值为整型，如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;string&gt; v &#123;<span class="number">10</span>&#125;;        <span class="comment">// v 有 10 个默认初始化的元素</span></span><br><span class="line">vector&lt;string&gt; v &#123;<span class="number">10</span>, <span class="string">&quot;hi&quot;</span>&#125;;  <span class="comment">// v 有 10 个值为 &quot;hi&quot; 的元素</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>3.3.2 向vector对象中添加元素</strong></p>
+<p>vector可以高效增长，通常先定义一个空 vector，然后在添加元素会更快速。</p>
+<p>定义 vector 时，已知 vector 的大小，如果初始值都一样，初始化时确定大小与值会更快。如果初始值不全一样，即使已知大小，最好也先定义一个空的 vector，再添加元素。</p>
+<p><strong>3.3.3 其他vector操作</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><strong>Vector****支持的操作</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>v.empty()</td>
+<td>如果v不含有任何元素，返回阵：否则返回假</td>
+</tr>
+<tr>
+<td>v.size()</td>
+<td>返回v中元素的个数</td>
+</tr>
+<tr>
+<td>v.push_back(t)</td>
+<td>向v的尾端添加一个值为t的元素</td>
+</tr>
+<tr>
+<td>v[n]</td>
+<td>返回v中第n个位置上元素的引用</td>
+</tr>
+<tr>
+<td>v1 &#x3D; v2</td>
+<td>用v2中元素的拷贝替换v1中的元素</td>
+</tr>
+<tr>
+<td>v1 &#x3D; {a,b,c…}</td>
+<td>用列表中元素的拷贝替换v1中短时</td>
+</tr>
+<tr>
+<td>v1 &#x3D;&#x3D; v2</td>
+<td>v1、v2相等当且仅当他们的元素数量相同且对应位置的元素值都相同</td>
+</tr>
+<tr>
+<td>v1 !&#x3D; v2</td>
+<td>同上</td>
+</tr>
+<tr>
+<td>&lt;,&lt;&#x3D;,&gt;,&gt;&#x3D;</td>
+<td>以字典顺序进行比较</td>
+</tr>
+</tbody></table>
+<p>可以用范围 for 语句处理 vector 序列的元素</p>
+<p><strong>3.4 迭代器介绍</strong></p>
+<p>类似指针<br>使用迭代器可以访问某个元素，迭代器也能从一个元素移动到另一个元素。<br>有迭代器的类型都拥有begin和end成员<br>        begin：返回指向第一个元素（或字符）的迭代器<br>        end：尾后迭代器，即尾元素的下一个位置（一个本不存在的元素）</p>
+<p>所有标准库容器都可以使用迭代器</p>
+<p><strong>3.4.1 使用迭代器</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> b = v.<span class="built_in">begin</span>(), e = v.<span class="built_in">end</span>();    <span class="comment">//b和e的类型相同</span></span><br><span class="line"><span class="keyword">auto</span> d = v.<span class="built_in">cbegin</span>(); f = v.<span class="built_in">cend</span>();  <span class="comment">// 返回的是const_iterator</span></span><br></pre></td></tr></table></figure>
+
+<p>如果容器为空，则 begin 和 end 返回的都是尾后迭代器</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><strong>标准容器迭代器的运算符</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>*iter</td>
+<td>返回迭代器iter所指元素的引用</td>
+</tr>
+<tr>
+<td>iter-&gt;mem</td>
+<td>解引用iter并获取该元素的名为mem的成员，等价于(*iter).mem</td>
+</tr>
+<tr>
+<td>++iter</td>
+<td>令iter指示容器中的下一个元素(尾后迭代器除外)</td>
+</tr>
+<tr>
+<td>–iter</td>
+<td>令iter指示容器中的上一个元素</td>
+</tr>
+<tr>
+<td>iter1 &#x3D;&#x3D; iter2</td>
+<td>如果两个迭代器指示的是同一个元素则相等，否则不等。</td>
+</tr>
+<tr>
+<td>iter1 !&#x3D; iter2</td>
+<td>同上</td>
+</tr>
+</tbody></table>
+<p>尾后迭代器 并不实际指示某一个元素，所以不能对其进行递增或解引用</p>
+<p>拥有迭代器的标准类型使用iterator和const_iterator（和常量指针差不多）</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;<span class="type">int</span>&gt;::iterator it = v.<span class="built_in">begin</span>();</span><br><span class="line">string::iterator it;</span><br></pre></td></tr></table></figure>
+
+<p>  迭代器类型：<br>拥有迭代器的标准类型使用iterator和const_iterator（和常量指针差不多）</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;<span class="type">int</span>&gt;::iterator it; <span class="comment">//it能读写vector&lt;int&gt;元素</span></span><br><span class="line">string::iterator it2; <span class="comment">//it2能读写string对象中的字符</span></span><br><span class="line"></span><br><span class="line">vector&lt;<span class="type">int</span>&gt;::const_iterator it3; <span class="comment">//it3只能读元素，不能写元素</span></span><br><span class="line">string::const_iterator it4; <span class="comment">//it4只能读元素，不能写元素</span></span><br></pre></td></tr></table></figure>
+
+<p>如果对象是常量，begin和end返回const_iterator,否则返回iterator：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;<span class="type">int</span>&gt; v;</span><br><span class="line"><span class="type">const</span> vector&lt;<span class="type">int</span>&gt; cv;</span><br><span class="line"><span class="keyword">auto</span> it1 = v.<span class="built_in">begin</span>(); <span class="comment">//it1的类型是vector&lt;int&gt;::iterator</span></span><br><span class="line"><span class="keyword">auto</span> it2 = cv.<span class="built_in">begin</span>(); <span class="comment">//it2的类型是vector&lt;int&gt;::const_iterator</span></span><br></pre></td></tr></table></figure>
+
+<p>有时候我们希望即使对象不是常量，我们也要使用const_iterator：<br>C++11新标准引入了cbegin和cend：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> it3 = v.<span class="built_in">cbegin</span>(); <span class="comment">//it3的类型是vector&lt;int&gt;::const_iterator</span></span><br></pre></td></tr></table></figure>
+
+<p>结合解引用的成员访问：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;string&gt; v;</span><br><span class="line"><span class="keyword">auto</span> it = v.<span class="built_in">begin</span>();</span><br><span class="line"></span><br><span class="line">(*it).<span class="built_in">empty</span>();</span><br><span class="line">*it.<span class="built_in">empty</span>();  <span class="comment">//错误：试图访问it的名为empty的成员，但it是迭代器</span></span><br><span class="line">it-&gt;<span class="built_in">empty</span>(); <span class="comment">//箭头运算符：把解引用和成员访问两个操作合在一起</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	 <span class="function">vector&lt;string&gt; <span class="title">text</span><span class="params">(<span class="number">3</span>, <span class="string">&quot;hello the world!!&quot;</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">	 <span class="keyword">for</span> (<span class="keyword">auto</span> it = text.<span class="built_in">cbegin</span>(); it != text.<span class="built_in">cend</span>() &amp;&amp; !it-&gt;<span class="built_in">empty</span>(); ++it)</span><br><span class="line">		  cout &lt;&lt; *it &lt;&lt; endl;</span><br><span class="line">&#125; <span class="comment">//将输出三行hello the world!!</span></span><br></pre></td></tr></table></figure>
+
+<p>任何一种可能改变vector对象容量的操作，都会使得对于的迭代器失效</p>
+<p><strong>3.4.2 迭代器运算</strong></p>
+<p>string 和 vector 支持的迭代器运算。注意不能将两个迭代器相加。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">iter+n </span><br><span class="line">iter-n</span><br><span class="line">iter1 + = n</span><br><span class="line">iter1 – = n</span><br><span class="line">iter1 – iter2</span><br><span class="line">&gt;、&gt;=、&lt;、&lt;=</span><br></pre></td></tr></table></figure>
+
+<p>​       可以令迭代器和一个整数相加（或相减），其返回值是向前（或向后）移动了若干位置的迭代器。</p>
+<p><strong>3.5 数组</strong></p>
+<p>数组：复合类型（声明形如：a[d]）<br>        a：数组名称<br>        d：元素个数（必须是常量表达式）</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">unsigned</span> cnt = <span class="number">42</span>; </span><br><span class="line"><span class="keyword">constexpr</span> <span class="type">unsigned</span> sz = <span class="number">42</span>; <span class="comment">//常量表达式</span></span><br><span class="line"><span class="type">int</span> arr[<span class="number">10</span>];</span><br><span class="line"><span class="type">int</span> *parr[sz];</span><br><span class="line">string bad[cnt]; <span class="comment">//错误：cnt不是常量表达式</span></span><br><span class="line">string strs[<span class="built_in">get_size</span>()]; <span class="comment">//当get_size是constexpr时正确；否则错误</span></span><br></pre></td></tr></table></figure>
+
+<p>​		constexpr只限制只读，并不要求在编译时就确定，可以在运行时确定。只有编译时constexpr才可以表示数组大小</p>
+<p><strong>3.5.1 定义和初始化内置数组</strong></p>
+<p>不存在引用数组<br>可以使用列表初始化，但必须指定数组类型，不允许使用auto</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">unsigned</span> sz = <span class="number">3</span>;</span><br><span class="line"><span class="type">int</span> ial[sz] = &#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>&#125;;</span><br><span class="line"><span class="type">int</span> a2[] = &#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>&#125;; <span class="comment">//自动推断元素个数为3</span></span><br><span class="line"><span class="type">int</span> a3[<span class="number">5</span>] = &#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>&#125;; <span class="comment">//等价于a3[] = &#123;0,1,2,0,0&#125;</span></span><br><span class="line">string a4[<span class="number">3</span>] = &#123;<span class="string">&quot;hi&quot;</span>,<span class="string">&quot;bye&quot;</span>&#125;; <span class="comment">//等价于a4[]=&#123;&quot;hi&quot;,&quot;bye&quot;,&quot;&quot;&#125;</span></span><br><span class="line"><span class="type">int</span> a5[<span class="number">2</span>] = &#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>&#125;; <span class="comment">//错误：初始值过多</span></span><br></pre></td></tr></table></figure>
+
+<p>字符数组的特殊性：字符串字面值的结尾处还有一个空字符</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> a1[] = &#123;<span class="string">&#x27;C&#x27;</span>,<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27;+&#x27;</span>&#125;; <span class="comment">//列表初始化，没有空字符</span></span><br><span class="line"><span class="type">char</span> a2[] = &#123;<span class="string">&#x27;C&#x27;</span>,<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27;+&#x27;</span>,<span class="string">&#x27;\0&#x27;</span>&#125;; <span class="comment">//列表初始化，含有显示的空字符</span></span><br><span class="line"><span class="type">char</span> a3[] = <span class="string">&quot;C++&quot;</span>; <span class="comment">//含有空字符</span></span><br><span class="line"><span class="type">const</span> <span class="type">char</span> a4[<span class="number">6</span>] = <span class="string">&quot;Danial&quot;</span>; <span class="comment">//错误，没有空间存放空字符！</span></span><br></pre></td></tr></table></figure>
+
+<p>不能用数组为另一个数组赋值或拷贝。可以按元素一个一个拷贝，但<strong>不能直接拷贝整个数组</strong>。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> a[] = &#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>&#125;;</span><br><span class="line"><span class="type">int</span> a2[] = a; <span class="comment">//初始化时拷贝错误</span></span><br><span class="line">a2 = a; <span class="comment">//赋值错误</span></span><br></pre></td></tr></table></figure>
+
+<p>按照由内向外的顺序理解数组的类型                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> *ptrs[<span class="number">10</span>]; <span class="comment">//ptrs是含有10个元素（整型指针）的数组</span></span><br><span class="line"><span class="type">int</span> &amp;refs[<span class="number">10</span>]; <span class="comment">//错误：不存在引用的数组</span></span><br><span class="line"><span class="built_in">int</span> (*Parray)[<span class="number">10</span>] = &amp;arr; <span class="comment">//Parray指向一个含有10个整数的数组</span></span><br><span class="line"><span class="built_in">int</span> (&amp;Parray)[<span class="number">10</span>] = arr; <span class="comment">//Parray引用一个含有10个整数的数组</span></span><br><span class="line"><span class="type">int</span> *(&amp;arry)[<span class="number">10</span>] = ptrs; <span class="comment">//arry是数组的引用，该数组包含10个指</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>3.5.2 访问数组元素</strong></p>
+<p>数组下标通常用 size_t 类型</p>
+<p>使用范围 for 语句遍历数组元素</p>
+<p><strong>3.5.3 指针和数组</strong></p>
+<p>使用数组的时候，编译器一般会把它转换成指针</p>
+<p>指向数组元素的指针等价于 vector 中的迭代器</p>
+<p><strong>3.5.4 C风格字符串</strong></p>
+<p>c++ 支持 c 风格字符串，但是最好不要使用，c 风格字符串使用不便，并且极易引发程序漏洞</p>
+<p>c 风格字符串不是一种类型，而是一种<strong>写法</strong>，是为了表达和使用字符串而形成的一种约定俗成的写法。</p>
+<p>用这种写法书写的字符串存放在字符数组中并以<strong>空字符（’\0’）</strong>结束。</p>
+<p><strong>c 风格字符串函数</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">strlen</span>(p);       <span class="comment">// 返回 p 的长度，不包括空字符</span></span><br><span class="line"><span class="built_in">strcmp</span>(p1, p2);  <span class="comment">// 比较 p1 与 p2，如果 p1 大于 p2，返回一个正值，如果相等返回 0，否则返回负值。</span></span><br><span class="line"><span class="built_in">strcat</span>(p1, p2);  <span class="comment">// 把 p2 附到 p1 之后，并返回 p1</span></span><br><span class="line"><span class="built_in">strcpy</span>(p1, p2);  <span class="comment">// 把 p2 拷贝给 p1，返回 p1</span></span><br></pre></td></tr></table></figure>
+
+<p>​         </p>
+<p>这些函数都不验证参数。传入参数的指针必须指向以空字符结束的数组。必须确保数组足够大。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> ca[] = &#123;<span class="string">&#x27;q&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;d&#x27;</span>&#125;;  <span class="comment">// 使用列表定义的都没有空字符</span></span><br></pre></td></tr></table></figure>
+
+<p>对于 string，可以使用 s &#x3D; s1 + s2，s1 &gt; s2 等加和与比较，而 c 风格字符串不行，因为他们实际上是指针。</p>
+<p><strong>3.5.5 与旧代码的接口</strong></p>
+<p><strong>string对象和C风格字符串的混用</strong></p>
+<p>可以使用字符串字面值来初始化 string 对象或与 string 对象加和，所有可以用字符串字面值的地方都可以使用以空字符结束的字符数组来代替。</p>
+<p>反过来不能使用 string 对象初始化字符数组，必须要用 <strong>c_str()</strong> 函数将 string 对象转化为 c 风格字符串</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">char</span>* cp = s.<span class="built_in">c_str</span>();  <span class="comment">// s.c_str() 返回一个指向以空字符结束的字符数组的指针。</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>使用数组初始化 vector 对象</strong></p>
+<p>可以使用数组来初始化 vector 对象，用两个指针来表明范围（左闭合区间）</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> arr[] = &#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;;</span><br><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">ivec</span><span class="params">(begin(arr), end(arr))</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p><strong>建议不要使用 c 风格字符串和内置数值，都使用标准库容器</strong></p>
+<p><strong>3.6 多维数组</strong></p>
+<p>严格来说 C++ 中没有多维数组，那实际是数组的数组。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> arr[<span class="number">10</span>][<span class="number">20</span>][<span class="number">30</span>] = &#123;<span class="number">0</span>&#125;;  <span class="comment">// 将所有元素初始化为 0</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>多维数组的初始化</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;显式初始化所有元素&#x27;</span></span><br><span class="line"><span class="type">int</span> arr[<span class="number">2</span>][<span class="number">3</span>] = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>&#125;;</span><br><span class="line"><span class="type">int</span> arr[<span class="number">2</span>][<span class="number">3</span>] = &#123; &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;,&#123;<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>&#125; &#125;;<span class="comment">//上面这两种方式效果是一样的</span></span><br><span class="line"><span class="string">&#x27;显式初始化部分元素&#x27;</span></span><br><span class="line"><span class="type">int</span> arr[<span class="number">2</span>][<span class="number">3</span>] = &#123; &#123;<span class="number">1</span>&#125;,&#123;<span class="number">4</span>,<span class="number">5</span>&#125; &#125;;<span class="comment">//将第一行第一个元素和第二行第一、二个元素初始化为1,4,5，其他元素执行值初始化。</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>多维数组的下标引用</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> arr[<span class="number">2</span>][<span class="number">3</span>];</span><br><span class="line">arr[<span class="number">0</span>];<span class="comment">//这是一个有三个元素的一维数组</span></span><br><span class="line">arr[<span class="number">0</span>][<span class="number">0</span>];<span class="comment">//第一行第一列的元素</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>使用范围 for 语句处理多维数组</strong></p>
+<p>新标准中可以使用范围 for 语句处理多维数组。</p>
+<p>注意范围 for 语句中改变元素值要显示使用 &amp; 符号声明为引用类型。</p>
+<p>注意：使用范围 for 循环处理多维数组时，<strong>除了最内层的循环外，其他所有循环的控制变量都应该是引用类型</strong>。</p>
+<p>因为如果不声明为引用类型，编译器会自动将控制变量转换为指向数组首元素的指针，就不能在内层继续使用范围 for 循环处理该控制变量了。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span>&amp; row : arr)</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> col : row)</span><br></pre></td></tr></table></figure>
+
+<p><strong>使用 3 种方式来输出 arr 的元素</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 范围 for 语句-不使用类型别名</span></span><br><span class="line"><span class="keyword">for</span> (<span class="type">const</span> <span class="built_in">int</span> (&amp;row)[<span class="number">4</span>] : arr)</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> col : row)</span><br><span class="line">        cout &lt;&lt; col &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">cout &lt;&lt; endl;</span><br><span class="line"><span class="comment">// 范围 for 语句-使用类型别名</span></span><br><span class="line"><span class="keyword">using</span> int_array = <span class="type">int</span>[<span class="number">4</span>];</span><br><span class="line"><span class="keyword">for</span> (int_array &amp;p : ia)</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> q : p)</span><br><span class="line">        cout &lt;&lt; q &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">cout &lt;&lt; endl;</span><br><span class="line"><span class="comment">// 普通 for 循环</span></span><br><span class="line"><span class="keyword">for</span> (<span class="type">size_t</span> i = <span class="number">0</span>; i != <span class="number">3</span>; ++i)</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">size_t</span> j = <span class="number">0</span>; j != <span class="number">4</span>; ++j)</span><br><span class="line">        cout &lt;&lt; arr[i][j] &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">cout &lt;&lt; endl;</span><br><span class="line"><span class="comment">// 指针</span></span><br><span class="line"><span class="keyword">for</span> (<span class="built_in">int</span> (*row)[<span class="number">4</span>] = arr; row != arr + <span class="number">3</span>; ++row)</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> *col = *row; col != *row + <span class="number">4</span>; ++col)</span><br><span class="line">        cout &lt;&lt; *col &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">cout &lt;&lt; endl;</span><br></pre></td></tr></table></figure>
+
+<p>​      </p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">张栋梁</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://1921430580.github.io/undefined/7f71bab2/">http://1921430580.github.io/undefined/7f71bab2/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://1921430580.github.io" target="_blank">my blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊1.69vym0dr01w0.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/undefined/54e122cb/"><img class="prev-cover" src="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊3.4wusp7b98ja0.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">c++笔记之变量和基本类型</div></div></a></div><div class="next-post pull-right"><a href="/undefined/ca1d4fd/"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊3.4wusp7b98ja0.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">c++学习笔记之表达式</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">张栋梁</div><div class="author-info__description">学习使我快乐</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">16</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Akilarlxh" target="_blank" title="icon-rat"><i class="Github"></i></a><a class="social-icon" href="mailto:Akilarlxh@gmail.com" target="_blank" title="fas fa-envelope"><i class="Email"></i></a><a class="social-icon" href="https://space.bilibili.com/22976782" target="_blank" title="icon-ox"><i class="Bilibili"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recommend-post"><div class="item-headline"><i class="fas fa-dharmachakra"></i><span>相关推荐</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/undefined/403834c2/" title="Python基础学习笔记之变量与运算"><img src="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊4.47w46o5asxw0.webp" alt="Python基础学习笔记之变量与运算"></a><div class="content"><a class="title" href="/undefined/403834c2/" title="Python基础学习笔记之变量与运算">Python基础学习笔记之变量与运算</a><time datetime="2022-04-18" title="发表于 2022-04-18">2022-04-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/undefined/ca1d4fd/" title="c++学习笔记之表达式"><img src="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊3.4wusp7b98ja0.webp" alt="c++学习笔记之表达式"></a><div class="content"><a class="title" href="/undefined/ca1d4fd/" title="c++学习笔记之表达式">c++学习笔记之表达式</a><time datetime="2022-04-26" title="发表于 2022-04-26">2022-04-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/undefined/4066/" title="c++学习笔记之预备知识"><img src="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊6.16806l3le8dc.webp" alt="c++学习笔记之预备知识"></a><div class="content"><a class="title" href="/undefined/4066/" title="c++学习笔记之预备知识">c++学习笔记之预备知识</a><time datetime="2022-04-15" title="发表于 2022-04-15">2022-04-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/undefined/84ec9e03/" title="c++笔记之初识c++"><img src="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊7.16nuvow0fdmk.webp" alt="c++笔记之初识c++"></a><div class="content"><a class="title" href="/undefined/84ec9e03/" title="c++笔记之初识c++">c++笔记之初识c++</a><time datetime="2022-04-18" title="发表于 2022-04-18">2022-04-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/undefined/2e91ca60/" title="c++学习笔记之函数"><img src="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊7.16nuvow0fdmk.webp" alt="c++学习笔记之函数"></a><div class="content"><a class="title" href="/undefined/2e91ca60/" title="c++学习笔记之函数">c++学习笔记之函数</a><time datetime="2022-05-08" title="发表于 2022-05-08">2022-05-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/undefined/54e122cb/" title="c++笔记之变量和基本类型"><img src="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊3.4wusp7b98ja0.webp" alt="c++笔记之变量和基本类型"></a><div class="content"><a class="title" href="/undefined/54e122cb/" title="c++笔记之变量和基本类型">c++笔记之变量和基本类型</a><time datetime="2022-04-21" title="发表于 2022-04-21">2022-04-21</time></div></div></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/undefined/2e91ca60/" title="c++学习笔记之函数"><img src="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊7.16nuvow0fdmk.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="c++学习笔记之函数"/></a><div class="content"><a class="title" href="/undefined/2e91ca60/" title="c++学习笔记之函数">c++学习笔记之函数</a><time datetime="2022-05-08T02:18:18.000Z" title="发表于 2022-05-08 10:18:18">2022-05-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/undefined/ec114a8d/" title="c++学习笔记之语句"><img src="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊9.gmvh4e6tfq8.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="c++学习笔记之语句"/></a><div class="content"><a class="title" href="/undefined/ec114a8d/" title="c++学习笔记之语句">c++学习笔记之语句</a><time datetime="2022-04-29T00:38:02.000Z" title="发表于 2022-04-29 08:38:02">2022-04-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/undefined/ca1d4fd/" title="c++学习笔记之表达式"><img src="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊3.4wusp7b98ja0.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="c++学习笔记之表达式"/></a><div class="content"><a class="title" href="/undefined/ca1d4fd/" title="c++学习笔记之表达式">c++学习笔记之表达式</a><time datetime="2022-04-26T08:23:36.000Z" title="发表于 2022-04-26 16:23:36">2022-04-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/undefined/7f71bab2/" title="c++笔记之字符串、向量、和数组"><img src="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊1.69vym0dr01w0.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="c++笔记之字符串、向量、和数组"/></a><div class="content"><a class="title" href="/undefined/7f71bab2/" title="c++笔记之字符串、向量、和数组">c++笔记之字符串、向量、和数组</a><time datetime="2022-04-23T03:39:19.000Z" title="发表于 2022-04-23 11:39:19">2022-04-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/undefined/54e122cb/" title="c++笔记之变量和基本类型"><img src="https://cdn.jsdelivr.net/gh/1921430580/AssetsRepo@master/小浣熊3.4wusp7b98ja0.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="c++笔记之变量和基本类型"/></a><div class="content"><a class="title" href="/undefined/54e122cb/" title="c++笔记之变量和基本类型">c++笔记之变量和基本类型</a><time datetime="2022-04-21T08:43:07.000Z" title="发表于 2022-04-21 16:43:07">2022-04-21</time></div></div></div></div></div></div></main><footer id="footer" style="background: rgba(0, 0, 0, 0)"><div id="footer-wrap"><div class="copyright">&copy;2022 By 张栋梁</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"><script>(() => {
+  const $mermaidWrap = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaidWrap.length) {
+    window.runMermaid = () => {
+      window.loadMermaid = true
+      const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+      Array.from($mermaidWrap).forEach((item, index) => {
+        const mermaidSrc = item.firstElementChild
+        const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+        const mermaidID = 'mermaid-' + index
+        const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+        mermaid.mermaidAPI.render(mermaidID, mermaidDefinition, (svgCode) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svgCode)
+        })
+      })
+    }
+
+    const loadMermaid = () => {
+      window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(runMermaid)
+    }
+
+    window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+  }
+})()</script><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: '',
+      appKey: '',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script async data-pjax src="/js/randombg.js"></script><script defer src="/live2d-widget/autoload.js"></script><script async src="//at.alicdn.com/t/font_3334759_mnvqntvw5u.js<script defer data-pjax src="/live2d-widget/autoload.js"></script><script async data-pjax src="//at.alicdn.com/t/font_3334759_mnvqntvw5u.js<script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" data-mobile="false" data-text="富强,文明,民主,和谐,公平,正义,爱国,平等,自由" data-fontsize="15px" data-random="false" async="async"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --> <script data-pjax>if(document.getElementById('recent-posts') && (location.pathname ==='/'|| '/' ==='all')){
+    var parent = document.getElementById('recent-posts');
+    var child = '<div class="recent-post-item" style="width:100%;height: auto"><div id="catalog_magnet"><div class="magnet_item"><a class="magnet_link" href="http://1921430580.github.io/categories/电脑/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">📚 某人の电脑相关 (1)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="http://1921430580.github.io/categories/优化日志/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">🐱‍👓 某人の优化日志 (1)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="http://1921430580.github.io/categories/踩过的坑/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">👩‍💻 某人の踩坑历程 (2)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="http://1921430580.github.io/categories/学习笔记/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">📒 某人の学习笔记 (1)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item"><a class="magnet_link" href="http://1921430580.github.io/categories/随笔/"><div class="magnet_link_context" style=""><span style="font-weight:500;flex:1">💡 某人の胡思乱想 (2)</span><span style="padding:0px 4px;border-radius: 8px;"><i class="fas fa-arrow-circle-right"></i></span></div></a></div><div class="magnet_item" style="visibility: hidden"></div><a class="magnet_link_more"  href="http://1921430580.github.io/categories" style="flex:1;text-align: center;margin-bottom: 10px;">查看更多...</a></div></div>';
+    console.log('已挂载magnet')
+    parent.insertAdjacentHTML("afterbegin",child)}
+     </script><style>#catalog_magnet{flex-wrap: wrap;display: flex;width:100%;justify-content:space-between;padding: 10px 10px 0 10px;align-content: flex-start;}.magnet_item{flex-basis: calc(50% - 5px);background: #f2f2f2;margin-bottom: 10px;border-radius: 8px;transition: all 0.2s ease-in-out;}.magnet_item:hover{background: #b30070}.magnet_link_more{color:#555}.magnet_link{color:black}.magnet_link:hover{color:white}@media screen and (max-width: 600px) {.magnet_item {flex-basis: 100%;}}.magnet_link_context{display:flex;padding: 10px;font-size:16px;transition: all 0.2s ease-in-out;}.magnet_link_context:hover{padding: 10px 20px;}</style>
+    <style></style><script data-pjax>function history_calendar_injector_config(){
+                var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+                var item_html = '<div class="card-widget card-history"><div class="card-content"><div class="item-headline"><i class="fas fa-clock fa-spin"></i><span>那年今日</span></div><div id="history-baidu" style="height: 100px;overflow: hidden"><div class="history_swiper-container" id="history-container" style="width: 100%;height: 100%"><div class="swiper-wrapper" id="history_container_wrapper" style="height:20px"></div></div></div></div>';
+                console.log('已挂载history_calendar')
+                // parent_div_git.innerHTML=item_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",item_html) // 有报错，但不影响使用(支持pjax跳转)
+            }if( document.getElementsByClassName('sticky_layout')[0] && (location.pathname ==='all'|| 'all' ==='all')){
+
+            history_calendar_injector_config()
+        } </script><script data-pjax  src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script><script data-pjax src="https://cdn.jsdelivr.net/gh/Zfour/Butterfly-card-history/baiduhistory/js/main.js"></script><div class="js-pjax"><script async="async">var arr = document.getElementsByClassName('recent-post-item');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '1s');
+    arr[i].setAttribute('data-wow-delay', '500ms');
+    arr[i].setAttribute('data-wow-offset', '70');
+    arr[i].setAttribute('data-wow-iteration', '1');
+  }</script><script async="async">var arr = document.getElementsByClassName('card-widget');
+for(var i = 0;i<arr.length;i++){
+    arr[i].classList.add('wow');
+    arr[i].classList.add('animate__zoomIn');
+    arr[i].setAttribute('data-wow-duration', '');
+    arr[i].setAttribute('data-wow-delay', '');
+    arr[i].setAttribute('data-wow-offset', '');
+    arr[i].setAttribute('data-wow-iteration', '');
+  }</script></div><script defer src="https://unpkg.zhimg.com/hexo-butterfly-wowjs/lib/wow.min.js"></script><script defer src="https://unpkg.zhimg.com/hexo-butterfly-wowjs/lib/wow_init.js"></script><!-- hexo injector body_end end --></body></html>
